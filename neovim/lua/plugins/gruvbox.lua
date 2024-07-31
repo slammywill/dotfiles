@@ -7,7 +7,7 @@ return {
             transparent_mode = true,
             contrast = "soft",
         })
-        vim.o.backgroud = dark
-        vim.cmd([[colorscheme gruvbox]])
+        -- vim.o.backgroud = dark
+        -- vim.cmd([[colorscheme gruvbox]])
     end,
 }
