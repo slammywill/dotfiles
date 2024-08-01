@@ -75,6 +75,7 @@ return {
           },
           hide_by_pattern = {
             "*.dSYM",
+            ".bin/"
           },
         },
       },
