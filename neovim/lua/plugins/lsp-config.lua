@@ -17,7 +17,7 @@ return {
           "jdtls",
           "pyright",
           "cssls",
-				},
+},
 			})
 		end,
 	},
