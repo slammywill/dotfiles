@@ -8,8 +8,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 
-# Aliases
-alias tm='tmux attach || tmux new'
+# ALIASES
+
+# Git
 alias gaa='git add .'
 alias gl='git pull'
 alias gco='git checkout'
@@ -18,6 +19,9 @@ alias gp='git push'
 alias gcd='git checkout $(git_development_branch)'
 alias gcm='git commit -m'
 
+# Misc
+alias tm='tmux attach || tmux new'
+alias fzf='fzf --tmux'
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/sam/.zshrc'
