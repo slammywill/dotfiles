@@ -7,12 +7,12 @@
 
 window#waybar {
   background-color: rgba(51, 60, 67, 0.0);
-  border: none;
   border-radius: 10px;
+  color: #d3c6aa;
+  border: none;
 }
 
 #workspaces {
-  color: #d3c6aa;
   background-color: rgba(51, 60, 67, 0.8);
   border-radius: 8px;
   border: 2px solid #7fbbb3;
@@ -20,26 +20,73 @@ window#waybar {
 
 #workspaces button {
   transition: all 0.2s ease-in-out;
-  color: #d3c6aa;
 }
 
 #workspaces button.active {
   transition: all 0.2s ease-in-out;
-  color: #a7c080;
+  color: #83c092;
 }
 
 box#window {
-  color: #d3c6aa;
-  padding-left: 5px;
-  padding-right: 5px;
   background-color: rgba(51, 60, 67, 0.8);
+  padding-right: 5px;
   border-radius: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
   border: 2px solid #7fbbb3;
+  color: #7fbbb3;
 }
 
 window#waybar.empty #window {
   background: transparent;
-  padding: 0;
   border:none;
+  padding: 0;
 }
 
+#cpu,
+#memory,
+#disk {
+  background-color: rgba(51, 60, 67, 0.8);
+  border-top: 2px solid #7fbbb3;
+  border-bottom: 2px solid #7fbbb3;
+}
+
+#disk {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-right: 2px solid #7fbbb3;
+  color: #d699b6;
+}
+
+#cpu {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-left: 2px solid #7fbbb3;
+  padding-left: 10px;
+  color: #83c092;
+}
+
+#memory {
+  color: #7fbbb3;
+}
+
+#clock {
+  background-color: rgba(51, 60, 67, 0.8);
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 2px solid #7fbbb3;
+  color: #d699b6;
+}
+
+#network {
+  background-color: rgba(51, 60, 67, 0.8);
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 2px solid #7fbbb3;
+  color: #7fbbb3;
+
+}

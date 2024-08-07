@@ -2,28 +2,35 @@
 {
     "layer": "top",
     "height": 30,
-    "spacing": 4,
     "margin-top": 10,
     "margin-left": 20,
     "margin-right": 20,
 
     "modules-left": [
-        "hyprland/window",
+        "clock",
+        "hyprland/window"
     ],
     "modules-center": [
         "hyprland/workspaces"
     ],
     "modules-right": [
+        "network",
         "cpu",
         "memory",
-        "disk",
+        "disk"
     ],
     // Modules configuration
-     "hyprland/workspaces": {
-         "disable-scroll": true,
-         "all-outputs": true,
-         "warp-on-scroll": false,
-         "format": "",
+   "hyprland/workspaces": {
+        "disable-scroll": true,
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{}",
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": ""
+        }
      },
     "hyprland/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -39,14 +46,14 @@
         "tooltip": true,
     },
     "memory": {
-        "format": " {}% "
+        "format": " {}% "
     },
     "disk": {
-        "format": " {percentage_used}% "
+        "format": " {percentage_used}% "
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "{essid} ({signalStrength}%)  ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
@@ -72,4 +79,9 @@
         },
         "on-click": "pavucontrol"
     },
+  "clock": {
+      "format": "{:%H:%M %a}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "{:%Y-%m-%d}",
+    }
 }
