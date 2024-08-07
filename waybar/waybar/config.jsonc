@@ -1,0 +1,75 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "height": 30,
+    "spacing": 4,
+    "margin-top": 10,
+    "margin-left": 20,
+    "margin-right": 20,
+
+    "modules-left": [
+        "hyprland/window",
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "disk",
+    ],
+    // Modules configuration
+     "hyprland/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll": false,
+         "format": "",
+     },
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "separate-outputs": true,
+        "icon": true,
+        "max-length": 25, // In characters
+    },
+    "cpu": {
+        "format": " {usage}% ",
+        "tooltip": true,
+    },
+    "memory": {
+        "format": " {}% "
+    },
+    "disk": {
+        "format": " {percentage_used}% "
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+}
