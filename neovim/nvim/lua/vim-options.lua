@@ -14,3 +14,5 @@ vim.cmd("set nu")
 vim.cmd("set rnu")
 vim.cmd("set ma")
 
+vim.cmd("set clipboard+=unnamedplus")
+
