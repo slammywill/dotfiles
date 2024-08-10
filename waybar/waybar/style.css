@@ -14,7 +14,7 @@ window#waybar {
 
 #workspaces {
   background-color: rgba(51, 60, 67, 0.8);
-  border-radius: 8px;
+  border-radius: 10px;
   border: 2px solid #7fbbb3;
 }
 
@@ -30,7 +30,7 @@ window#waybar {
 box#window {
   background-color: rgba(51, 60, 67, 0.8);
   padding-right: 5px;
-  border-radius: 8px;
+  border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
   border: 2px solid #7fbbb3;
