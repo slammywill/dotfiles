@@ -1,4 +1,4 @@
-/home/sam/dotfiles/zshrc/launch.sh
+~/dotfiles/zshrc/launch.sh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -36,9 +36,14 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
-# End of lines configured by zsh-newuser-install
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
+OS=$(uname)
+
+if [[ $OS == "Darwin" ]]; then
+  source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+elif [[ $OS == "Linux" ]]; then
+  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
