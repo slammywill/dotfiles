@@ -1,5 +1,5 @@
 return {
-{
+	{
 		"williamboman/mason.nvim",
 		config = function()
 			require("mason").setup()
@@ -14,10 +14,11 @@ return {
 					"tsserver",
 					"html",
 					"clangd",
-          "jdtls",
-          "pyright",
-          "cssls",
-},
+					"jdtls",
+					"pyright",
+					"cssls",
+          "arduino_language_server",
+				},
 			})
 		end,
 	},
@@ -37,49 +38,57 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.clangd.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.jdtls.setup({
-        capabilities = capabilities,
-        cmd = { "jdtls" }, -- Replace with the path to your jdtls executable if necessary
-        root_dir = lspconfig.util.root_pattern('pom.xml', 'build.gradle', '.project', 'settings.gradle') or vim.fn.getcwd(),
-      })
-      lspconfig.pyright.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.cssls.setup({
-        capabilities = capabilities,
-      })
+				capabilities = capabilities,
+			})
+			lspconfig.jdtls.setup({
+				capabilities = capabilities,
+				cmd = { "jdtls" }, -- Replace with the path to your jdtls executable if necessary
+				root_dir = lspconfig.util.root_pattern("pom.xml", "build.gradle", ".project", "settings.gradle")
+					or vim.fn.getcwd(),
+			})
+			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.cssls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.arduino_language_server.setup({
+				capabilities = capabilities,
+			})
 
-      lspconfig.sonarlint = {
-        default_config = {
-          cmd = {
-            "sonarlint-language-server",
-            "-stdio",
-            "-analyzers",
-            vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarpython.jar"),
-            vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarcfamily.jar"),
-            vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
-          },
-          root_dir = lspconfig.util.root_pattern('pom.xml', 'build.gradle', '.project', 'settings.gradle') or vim.fn.getcwd(),
-          filetypes = { "python", "cpp", "java" },
-          settings = {
-            -- SonarLint settings if needed
-          },
-        },
-      }
+			lspconfig.sonarlint = {
+				default_config = {
+					cmd = {
+						"sonarlint-language-server",
+						"-stdio",
+						"-analyzers",
+						vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarpython.jar"),
+						vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarcfamily.jar"),
+						vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
+					},
+					root_dir = lspconfig.util.root_pattern("pom.xml", "build.gradle", ".project", "settings.gradle")
+						or vim.fn.getcwd(),
+					filetypes = { "python", "cpp", "java" },
+					settings = {
+						-- SonarLint settings if needed
+					},
+				},
+			}
 
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-    end,
-    handlers = {
-      ["client/registerCapability"] = function(err, result, ctx, config)
-        local registration = {
-          registrations = { result },
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+			vim.keymap.set("n", "gc", vim.lsp.buf.code_action, {})
+            vim.keymap.set("n", "ge", vim.diagnostic.open_float, {silent = true})
+
+		end,
+		handlers = {
+			["client/registerCapability"] = function(err, result, ctx, config)
+				local registration = {
+					registrations = { result },
 				}
 				return vim.lsp.handlers["client/registerCapability"](err, registration, ctx, config)
 			end,
 		},
 	},
+
 }
