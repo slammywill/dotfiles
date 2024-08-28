@@ -12,6 +12,8 @@ vim.cmd("set ma") -- Set state to modifiable
 vim.cmd("set clipboard+=unnamedplus") -- Set clipboard to use system clipboard
 vim.cmd("set nohlsearch") -- Don't use highlighting on search
 vim.cmd("set expandtab") -- Replace tabs with spaces
+vim.cmd("set tabstop=4") -- Set tab length to 4 spaces
+vim.cmd("set shiftwidth=4") -- Set indent length to 4 spaces
 
 vim.diagnostic.config({
 	virtual_text = false, -- Disable inline diagnostics -- Replace tabs with spaces
