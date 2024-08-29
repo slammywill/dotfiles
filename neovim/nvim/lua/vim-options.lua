@@ -1,4 +1,7 @@
---------------
+
+-------------
+-- OPTIONS --
+-------------
 vim.opt.clipboard:append('unnamedplus') -- Set clipboard to use system clipboard
 vim.opt.hlsearch = false                -- Don't use highlighting on search
 vim.opt.expandtab = true                -- Replace tabs with spaces
