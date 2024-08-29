@@ -74,12 +74,6 @@ return {
 					},
 				},
 			}
-
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-			vim.keymap.set("n", "gc", vim.lsp.buf.code_action, {})
-            vim.keymap.set("n", "ge", vim.diagnostic.open_float, {silent = true})
-
 		end,
 		handlers = {
 			["client/registerCapability"] = function(err, result, ctx, config)
