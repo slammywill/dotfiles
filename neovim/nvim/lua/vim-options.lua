@@ -1,19 +1,20 @@
 --------------
--- OPTIONS --
---------------
 vim.opt.clipboard:append('unnamedplus') -- Set clipboard to use system clipboard
 vim.opt.hlsearch = false                -- Don't use highlighting on search
 vim.opt.expandtab = true                -- Replace tabs with spaces
 vim.opt.tabstop = 4                     -- Set tab length to 4 spaces
 vim.opt.shiftwidth = 4                  -- Set indent length to 4 spaces
 vim.opt.smartcase = true                -- Ignore case on search unless search query contains capitals
+vim.opt.nu = true                       -- Show current line number
 vim.opt.rnu = true                      -- Use relative numbers
 vim.opt.undofile = true                 -- Use persistent undo 
-vim.opt.swapfile = false                -- Stop nvim from using temp files for open file changes
-vim.g.mapleader = " "                   -- Sets the leader key
-vim.o.cursorline = true                 -- Highlights the line that the cursor is on
+vim.opt.swapfile = false                -- Don't use temp files for open file changes
+vim.g.mapleader = " "                   -- Set the leader key
+vim.o.cursorline = true                 -- Highlight the line that the cursor is on
 vim.o.termguicolors = true              -- Use true colors
-vim.g['test#strategy'] = 'vimux'        -- Sets tests to use vimux to display results
+vim.opt.scrolloff = 8                   -- Keep 8 lines above / below when vertically scolling
+vim.opt.sidescrolloff = 8               -- Keep 8 columns left / right when horizontally scrolling
+vim.g['test#strategy'] = 'vimux'        -- Set tests to use vimux to display results
 
 --------------
 -- KEYBINDS --
@@ -32,10 +33,10 @@ vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")          -- Searc
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")           -- Search for a text string in dir files
 vim.keymap.set("n", "<leader>fr", ":Telescope buffers<CR>")             -- Search through and select a buffer
 vim.keymap.set("n", "<leader>tn", ":TestNearest --stacktrace<CR>")      -- Run the nearest test to the cursor
-vim.keymap.set("n", "<leader>tf", ":TestFile --stacktrace<CR>")         -- Runs tests for the current file
-vim.keymap.set("n", "<leader>ts", ":TestSuite --stacktrace<CR>")        -- Runs tests for the current test suite
-vim.keymap.set("n", "<leader>tl", ":TestLast --stacktrace<CR>")         -- Reruns the last test
-vim.keymap.set("n", "<leader>tv", ":TestVisit<CR>")                     -- Visits the file of your last run tests
+vim.keymap.set("n", "<leader>tf", ":TestFile --stacktrace<CR>")         -- Run tests for the current file
+vim.keymap.set("n", "<leader>ts", ":TestSuite --stacktrace<CR>")        -- Run tests for the current test suite
+vim.keymap.set("n", "<leader>tl", ":TestLast --stacktrace<CR>")         -- Rerun the last test
+vim.keymap.set("n", "<leader>tv", ":TestVisit<CR>")                     -- Visit the file of the last run tests
 
 -----------------
 -- DIAGNOSTICS --
