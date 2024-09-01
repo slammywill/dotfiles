@@ -80,7 +80,7 @@
         "on-click": "pavucontrol"
     },
   "clock": {
-      "timezone": "New_Zealand/Christchurch",
+      "timezone": "Pacific/Auckland",
       "format": "{:%H:%M %a}",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
       "format-alt": "{:%Y-%m-%d}"
