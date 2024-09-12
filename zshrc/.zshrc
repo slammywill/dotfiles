@@ -23,7 +23,6 @@ alias gcm='git commit -m'
 alias tm='tmux attach || tmux new'
 alias fzf='fzf --tmux'
 alias v='nvim'
-alias open='xdg-open'
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/sam/.zshrc'
