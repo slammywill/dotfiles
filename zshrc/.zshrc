@@ -16,13 +16,13 @@ alias gl='git pull'
 alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gp='git push'
-alias gcd='git checkout $(git_development_branch)'
+alias gcd='git checkout dev'
 alias gcm='git commit -m'
 
 # Misc
-alias tm='tmux attach || tmux new'
 alias fzf='fzf --tmux'
 alias v='nvim'
+alias tm='source ~/dotfiles/zshrc/launch_tmux.sh'
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/sam/.zshrc'
