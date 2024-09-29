@@ -18,6 +18,7 @@ alias gcb='git checkout -b'
 alias gp='git push'
 alias gcd='git checkout dev'
 alias gcm='git commit -m'
+alias gdf='git diff'
 
 # Misc
 alias fzf='fzf --tmux'
