@@ -10,16 +10,16 @@ prompt-color = #d699b6
 
 ### WINDOW THEME ###
 
-  background-color = #333C43
-  
-  border-width = 2
-  border-color = #7fbbb3
-  corner-radius = 10
+background-color = #333C43
 
-  outline-width = 0
+border-width = 2
+border-color = #7fbbb3
+corner-radius = 10
 
-  width = 500
-  height = 300
+outline-width = 0
 
-  # Scale window by display scale factor
-  scale = true
+width = 500
+height = 300
+
+# Scale window by display scale factor
+scale = true
