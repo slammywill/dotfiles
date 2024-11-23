@@ -36,6 +36,7 @@ vim.keymap.set("n", "C-l", ":TmuxNavigatorRight<CR>", { silent = true })        
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true })     -- Search through and select files
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true })      -- Search for a text string in dir files
 vim.keymap.set("n", "<leader>fr", ":Telescope buffers<CR>", { silent = true })        -- Search through and select a buffer
+vim.keymap.set("n", "<leader>fm", ":Telescope marks<CR>", { silent = true })          -- Search through and select marks
 vim.keymap.set("n", "<leader>tn", ":TestNearest --stacktrace<CR>", { silent = true }) -- Run the nearest test to the cursor
 vim.keymap.set("n", "<leader>tf", ":TestFile --stacktrace<CR>", { silent = true })    -- Run tests for the current file
 vim.keymap.set("n", "<leader>ts", ":TestSuite --stacktrace<CR>", { silent = true })   -- Run tests for the current test suite
