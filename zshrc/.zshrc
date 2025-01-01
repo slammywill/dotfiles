@@ -19,6 +19,7 @@ alias gp='git push'
 alias gcd='git checkout dev'
 alias gcm='git commit -m'
 alias gdf='git diff'
+alias lg='lazygit'
 
 # Misc
 alias fzf='fzf --tmux'
@@ -44,6 +45,9 @@ if [[ $OS == "Darwin" ]]; then
 elif [[ $OS == "Linux" ]]; then
   source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 fi
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
