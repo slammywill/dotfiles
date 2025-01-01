@@ -15,4 +15,5 @@ local ops = {}
 
 require("vim-options")
 require("lazy").setup("plugins")
+require("custom-setups")
 
