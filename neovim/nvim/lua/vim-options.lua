@@ -23,7 +23,7 @@ vim.g.tmux_navigator_no_mappings = 1    -- Removes default tmux navigator bindin
 --------------
 -- KEYBINDS --
 --------------
-vim.keymap.set("n", "<C-n>", ":Neotree reveal float<CR>", { silent = true })          -- Reveal file tree
+vim.keymap.set("n", "<C-n>", ":Neotree toggle float<CR>", { silent = true })          -- Reveal file tree
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { silent = true })                        -- Hover over keyword to get information
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true })                  -- Go to the definition of the hovered keyword
 vim.keymap.set("n", "gc", vim.lsp.buf.code_action, { silent = true })                 -- Select from a list of code actions
@@ -32,7 +32,7 @@ vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { silent = true })        
 vim.keymap.set("n", "C-h", ":TmuxNavigatorLeft<CR>", { silent = true })               -- Navigate left to a tmux pane
 vim.keymap.set("n", "C-j", ":TmuxNavigatorDown<CR>", { silent = true })               -- Navigate down to a tmux pane
 vim.keymap.set("n", "C-k", ":TmuxNavigatorUp<CR>", { silent = true })                 -- Navigate up to a tmux pane
-vim.keymap.set("n", "C-l", ":TmuxNavigatorRight<CR>", { silent = true })              -- Navigate up to a tmux pane
+vim.keymap.set("n", "C-l", ":TmuxNavigatorRight<CR>", { silent = true })              -- Navigate right to a tmux pane
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true })     -- Search through and select files
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true })      -- Search for a text string in dir files
 vim.keymap.set("n", "<leader>fr", ":Telescope buffers<CR>", { silent = true })        -- Search through and select a buffer

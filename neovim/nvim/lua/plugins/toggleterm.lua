@@ -2,7 +2,7 @@ return {
     "akinsho/toggleterm.nvim",
     version = "*",
     opts = {
-        open_mapping = [[<c-\>]],
+        open_mapping = [[<c-j>]],
         direction = 'float',
         start_in_insert = true,
         insert_mappings = true,
@@ -10,5 +10,5 @@ return {
         float_opts = {
             border = 'curved',
         }
-    }
+    },
 }
