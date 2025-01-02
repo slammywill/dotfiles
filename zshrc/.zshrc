@@ -24,15 +24,18 @@ alias tm='source ~/dotfiles/zshrc/launch_tmux.sh'
 
 
 OS=$(uname)
+PLUGIN_PATH=""
 
 if [[ $OS == "Darwin" ]]; then
+    PLUGIN_PATH="/opt/homebrew/share"
     source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 elif [[ $OS == "Linux" ]]; then
+    PLUGIN_PATH="/usr/share/zsh/plugins"
     source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 fi
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $PLUGIN_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $PLUGIN_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
