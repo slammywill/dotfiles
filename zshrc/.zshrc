@@ -7,21 +7,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
-alias gaa='git add .'
-alias gl='git pull'
-alias gco='git checkout'
-alias gcb='git checkout -b'
-alias gp='git push'
-alias gcd='git checkout dev'
-alias gcm='git commit -m'
-alias gdf='git diff'
-alias lg='lazygit'
-
-alias fzf='fzf --tmux'
-alias v='nvim'
-alias tm='source ~/dotfiles/zshrc/launch_tmux.sh'
-
+source .aliases
 
 OS=$(uname)
 PLUGIN_PATH=""
