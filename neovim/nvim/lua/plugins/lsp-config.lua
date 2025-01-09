@@ -14,9 +14,9 @@ return {
                     "html",
                     "clangd",
                     "jdtls",
-                    "pyright",
+                    "pylsp",
                     "cssls",
-                    "arduino_language_server",
+                    "rust_analyzer",
                 },
             })
         end,
@@ -28,6 +28,9 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lspconfig = require("lspconfig")
             lspconfig.html.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.cssls.setup({
                 capabilities = capabilities,
             })
             lspconfig.lua_ls.setup({
@@ -42,16 +45,34 @@ return {
                 root_dir = lspconfig.util.root_pattern("pom.xml", "build.gradle", ".project", "settings.gradle")
                     or vim.fn.getcwd(),
             })
-            lspconfig.pyright.setup({
+            lspconfig.pylsp.setup({
                 capabilities = capabilities,
+                root_dir = lspconfig.util.root_pattern(".git", "__init__.py")
+                    or vim.fn.getcwd(),
             })
-            lspconfig.cssls.setup({
-                capabilities = capabilities,
+            lspconfig.rust_analyzer.setup({
+                on_attach = function(client, bufnr)
+                        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                    end,
+                settings = {
+                    ["rust-analyzer"] = {
+                        imports = {
+                            granularity = {
+                                group = "module",
+                            },
+                            prefix = "self",
+                        },
+                        cargo = {
+                            buildScripts = {
+                                enable = true,
+                            },
+                        },
+                        procMacro = {
+                            enable = true
+                        },
+                    }
+                }
             })
-            lspconfig.arduino_language_server.setup({
-                capabilities = capabilities,
-            })
-
             lspconfig.sonarlint = {
                 default_config = {
                     cmd = {
@@ -62,7 +83,7 @@ return {
                         vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarcfamily.jar"),
                         vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
                     },
-                    root_dir = lspconfig.util.root_pattern("pom.xml", "build.gradle", ".project", "settings.gradle")
+                    root_dir = lspconfig.util.root_pattern("pom.xml", "build.gradle", ".project", "settings.gradle", ".git", "__init__.py")
                         or vim.fn.getcwd(),
                     filetypes = { "python", "cpp", "java" },
                     settings = {
