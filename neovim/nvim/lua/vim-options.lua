@@ -24,25 +24,32 @@ vim.g.tmux_navigator_no_mappings = 1 -- Removes default tmux navigator bindings
 -- KEYBINDS --
 --------------
 vim.keymap.set("n", "<C-n>", ":Neotree toggle float<CR>", { silent = true, desc = "Show directory tree" })
+
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>", { desc = "Go to definition" })
 vim.keymap.set("n", "gc", vim.lsp.buf.code_action, { desc = "Show code actions" })
 vim.keymap.set("n", "ge", ":Telescope lsp_diagnostics<CR>", { desc = "Show diagnostics" })
 vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>", { desc = "Show references" })
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { silent = true, desc = "format buffer" })
+
 vim.keymap.set("n", "C-h", ":TmuxNavigatorLeft<CR>", { silent = true, desc = "Navigate left (tmux)" })
 vim.keymap.set("n", "C-j", ":TmuxNavigatorDown<CR>", { silent = true, desc = "Navigate down (tmux)" })
 vim.keymap.set("n", "C-k", ":TmuxNavigatorUp<CR>", { silent = true, desc = "Navigate up (tmux)" })
 vim.keymap.set("n", "C-l", ":TmuxNavigatorRight<CR>", { silent = true, desc = "Navigate right (tmux)" })
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true, desc = "Find files" })
-vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true, desc = "Live grep" })
-vim.keymap.set("n", "<leader>fr", ":Telescope buffers<CR>", { silent = true, desc = "Find buffers" })
+
+vim.keymap.set("n", "<leader>ff", ":Telescope file_browser<CR>", { silent = true, desc = "Find files" })
+vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true, desc = "Find pattern" })
 vim.keymap.set("n", "<leader>fm", ":Telescope marks<CR>", { silent = true, desc = "Find marks" })
+vim.keymap.set("n", "<leader>fr", ":Telescope frecency workspace=CWD<CR>", { silent = true, desc = "Find buffers" })
+vim.keymap.set("n", "<leader>fz", ":Telescope zoxide list<CR>", { silent = true, desc = "Open zoxide picker" })
+vim.keymap.set("n", "<leader>fc", ":Telescope neoclip<CR>", { silent = true, desc = "Open clipboard picker" })
+
 vim.keymap.set("n", "<leader>tn", ":TestNearest --stacktrace<CR>", { desc = "Test nearest" })
 vim.keymap.set("n", "<leader>tf", ":TestFile --stacktrace<CR>", { desc = "Test file" })
 vim.keymap.set("n", "<leader>ts", ":TestSuite --stacktrace<CR>", { desc = "Test suite" })
 vim.keymap.set("n", "<leader>tl", ":TestLast --stacktrace<CR>", { desc = "Test last" })
 vim.keymap.set("n", "<leader>tv", ":TestVisit<CR>", { desc = "Visit test file " })
+
 vim.keymap.set("n", "<leader>y", ":%yank<CR>", { desc = "Yank entire buffer" })
 vim.keymap.set("n", "<leader>v", "ggVG", { desc = "Select entire buffer" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save buffer" })
