@@ -50,29 +50,6 @@ return {
                 root_dir = lspconfig.util.root_pattern(".git", "__init__.py")
                     or vim.fn.getcwd(),
             })
-            lspconfig.rust_analyzer.setup({
-                on_attach = function(client, bufnr)
-                        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-                    end,
-                settings = {
-                    ["rust-analyzer"] = {
-                        imports = {
-                            granularity = {
-                                group = "module",
-                            },
-                            prefix = "self",
-                        },
-                        cargo = {
-                            buildScripts = {
-                                enable = true,
-                            },
-                        },
-                        procMacro = {
-                            enable = true
-                        },
-                    }
-                }
-            })
             lspconfig.sonarlint = {
                 default_config = {
                     cmd = {

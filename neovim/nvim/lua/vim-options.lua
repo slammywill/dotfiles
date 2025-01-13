@@ -28,7 +28,7 @@ vim.keymap.set("n", "<C-n>", ":Neotree toggle float<CR>", { silent = true, desc 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>", { desc = "Go to definition" })
 vim.keymap.set("n", "gc", vim.lsp.buf.code_action, { desc = "Show code actions" })
-vim.keymap.set("n", "ge", ":Telescope lsp_diagnostics<CR>", { desc = "Show diagnostics" })
+vim.keymap.set("n", "ge", ":Telescope diagnostics<CR>", { desc = "Show diagnostics" })
 vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>", { desc = "Show references" })
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { silent = true, desc = "format buffer" })
 
@@ -53,6 +53,8 @@ vim.keymap.set("n", "<leader>tv", ":TestVisit<CR>", { desc = "Visit test file " 
 vim.keymap.set("n", "<leader>y", ":%yank<CR>", { desc = "Yank entire buffer" })
 vim.keymap.set("n", "<leader>v", "ggVG", { desc = "Select entire buffer" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save buffer" })
+vim.keymap.set("n", "<leader>x", ":x<CR>", { desc = "Save and quit buffer" })
+vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit buffer" })
 vim.keymap.set("n", "<c-\\>", "i") -- Insert mode when opening terminal
 
 -----------------

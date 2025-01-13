@@ -23,7 +23,7 @@ return {
                         key = "z",
                     },
                     {
-                        desc = " git",
+                        desc = " Git",
                         group = "Number",
                         action = "lua _lazygit_toggle()",
                         key = "g",
