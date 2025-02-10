@@ -23,7 +23,7 @@ vim.g.tmux_navigator_no_mappings = 1 -- Removes default tmux navigator bindings
 --------------
 -- KEYBINDS --
 --------------
-vim.keymap.set("n", "<C-n>", ":Neotree toggle float<CR>", { silent = true, desc = "Show directory tree" })
+vim.keymap.set("n", "<C-n>", ":Neotree toggle float reveal<CR>", { silent = true, desc = "Show directory tree" })
 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>", { desc = "Go to definition" })
