@@ -2,4 +2,5 @@ zsh-autosuggestions
 zsh-syntax-highlighting
 rg
 fzf
+fd
 

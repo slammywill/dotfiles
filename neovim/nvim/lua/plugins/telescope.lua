@@ -5,7 +5,6 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
             "jvgrootveld/telescope-zoxide",
-            "nvim-telescope/telescope-file-browser.nvim",
             "nvim-telescope/telescope-frecency.nvim",
 		},
 	},
@@ -23,15 +22,10 @@ return {
 				},
 				extensions = {
 					zoxide = {},
-					file_browser = {
-						depth = 3,
-						auto_depth = true,
-					},
 					frecency = {},
 				},
 			})
 			require("telescope").load_extension("zoxide")
-			require("telescope").load_extension("file_browser")
 			require("telescope").load_extension("frecency")
 		end,
 	},

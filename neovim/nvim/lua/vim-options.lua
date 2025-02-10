@@ -37,7 +37,7 @@ vim.keymap.set("n", "C-j", ":TmuxNavigatorDown<CR>", { silent = true, desc = "Na
 vim.keymap.set("n", "C-k", ":TmuxNavigatorUp<CR>", { silent = true, desc = "Navigate up (tmux)" })
 vim.keymap.set("n", "C-l", ":TmuxNavigatorRight<CR>", { silent = true, desc = "Navigate right (tmux)" })
 
-vim.keymap.set("n", "<leader>ff", ":Telescope file_browser<CR>", { silent = true, desc = "Find files" })
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true, desc = "Find files" })
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true, desc = "Find pattern" })
 vim.keymap.set("n", "<leader>fm", ":Telescope marks<CR>", { silent = true, desc = "Find marks" })
 vim.keymap.set("n", "<leader>fr", ":Telescope frecency workspace=CWD<CR>", { silent = true, desc = "Find buffers" })
