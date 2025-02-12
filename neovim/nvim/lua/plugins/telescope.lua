@@ -1,7 +1,6 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
             "jvgrootveld/telescope-zoxide",
@@ -11,8 +10,19 @@ return {
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		config = function()
-			require("telescope").setup({
+            local telescope = require("telescope")
+            local telescopeConfig = require("telescope.config")
+            local vimgrep_arguments = { table.unpack(telescopeConfig.values.vimgrep_arguments) }
+
+            table.insert(vimgrep_arguments, "--hidden")
+            -- Don't search in .git directory
+            table.insert(vimgrep_arguments, "--glob")
+            table.insert(vimgrep_arguments, "!**/.git/*")
+
+
+			telescope.setup({
 				defaults = {
+                    vimgrep_arguments = vimgrep_arguments,
 					file_ignore_patterns = {
 						"build",
 						"bin",
@@ -20,6 +30,11 @@ return {
 						"node_modules",
 					},
 				},
+                pickers = {
+                    find_files = {
+                        find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+                    }
+                },
 				extensions = {
 					zoxide = {},
 					frecency = {},

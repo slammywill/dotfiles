@@ -11,7 +11,9 @@ return {
         require("neo-tree").setup({
             popup_border_style = "rounded",
             filesystem = {
-                follow_current_file = true,
+                follow_current_file = {
+                    enabled = true,
+                },
                 sync_root_with_cwd = true,
                 bind_to_cwd = true,
                 filtered_items = {
