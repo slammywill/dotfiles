@@ -4,12 +4,6 @@ return {
 	opts = {
 		preset = "helix",
 		delay = 250,
-		win = {
-			bo = {},
-			wo = {
-				winblend = 100, -- value between 0-100 0 for fully opaque and 100 for fully transparent
-			},
-		},
 	},
 	keys = {
 		{

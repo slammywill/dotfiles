@@ -12,7 +12,7 @@ return {
 		config = function()
             local telescope = require("telescope")
             local telescopeConfig = require("telescope.config")
-            local vimgrep_arguments = { table.unpack(telescopeConfig.values.vimgrep_arguments) }
+            local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
 
             table.insert(vimgrep_arguments, "--hidden")
             -- Don't search in .git directory
