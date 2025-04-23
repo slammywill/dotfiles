@@ -32,10 +32,10 @@ vim.keymap.set("n", "ge", vim.diagnostic.open_float, { desc = "Show diagnostics"
 vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>", { desc = "Show references" })
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { silent = true, desc = "format buffer" })
 
-vim.keymap.set("n", "C-h", ":TmuxNavigatorLeft<CR>", { silent = true, desc = "Navigate left (tmux)" })
-vim.keymap.set("n", "C-j", ":TmuxNavigatorDown<CR>", { silent = true, desc = "Navigate down (tmux)" })
-vim.keymap.set("n", "C-k", ":TmuxNavigatorUp<CR>", { silent = true, desc = "Navigate up (tmux)" })
-vim.keymap.set("n", "C-l", ":TmuxNavigatorRight<CR>", { silent = true, desc = "Navigate right (tmux)" })
+vim.keymap.set("n", "<c-h>", ":TmuxNavigateLeft<CR>", { silent = true, desc = "Navigate left (tmux)" })
+vim.keymap.set("n", "<c-j>", ":TmuxNavigateDown<CR>", { silent = true, desc = "Navigate down (tmux)" })
+vim.keymap.set("n", "<c-k>", ":TmuxNavigateUp<CR>", { silent = true, desc = "Navigate up (tmux)" })
+vim.keymap.set("n", "<c-l>", ":TmuxNavigateRight<CR>", { silent = true, desc = "Navigate right (tmux)" })
 
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true, desc = "Find files" })
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true, desc = "Find pattern" })
@@ -55,7 +55,7 @@ vim.keymap.set("n", "<leader>v", "ggVG", { desc = "Select entire buffer" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save buffer" })
 vim.keymap.set("n", "<leader>x", ":x<CR>", { desc = "Save and quit buffer" })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit buffer" })
-vim.keymap.set("n", "<leader>o", ":e#<CR>", {silent = true, desc = "Go to last opened file"})
+vim.keymap.set("n", "<leader>s", ":e#<CR>", {silent = true, desc = "Go to last opened file"})
 vim.keymap.set("n", "<c-\\>", "i") -- Insert mode when opening terminal
 
 -----------------

@@ -1,13 +1,12 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: 'JetBrainsMono Nerd Font', FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   border: none;
 }
 
 window#waybar {
   background-color: rgba(51, 60, 67, 0.0);
-  border-radius: 10px;
   color: #d3c6aa;
   border: none;
 }
