@@ -28,6 +28,7 @@ return {
 						"bin",
 						"storage",
 						"node_modules",
+                        "target",
 					},
 				},
                 pickers = {
