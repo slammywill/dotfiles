@@ -11,11 +11,13 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
+                    "ts_ls",
                     "html",
                     "clangd",
                     "jdtls",
                     "pylsp",
                     "cssls",
+                    "svelte",
                     "rust_analyzer",
                 },
             })
@@ -37,6 +39,9 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.clangd.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.svelte.setup({
                 capabilities = capabilities,
             })
             lspconfig.jdtls.setup({

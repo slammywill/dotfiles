@@ -70,6 +70,15 @@ vim.diagnostic.config({
 })
 
 -----------
+-- OTHER --
+-----------
+vim.filetype.add({
+    extension = {
+        svelte = "svelte";
+    }
+})
+
+-----------
 -- NOTES --
 -----------
 -- https://neovim.io/doc/user/quickref.html

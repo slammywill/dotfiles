@@ -23,7 +23,7 @@ fi
 source $PLUGIN_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PLUGIN_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-autosuggest-execute() 
+autosuggest-execute() {
     zle autosuggest-accept
     zle accept-line
 }
