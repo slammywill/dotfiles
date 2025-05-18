@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wal -R &
+wal -i $HOME/wallpapers &
 
 # HYPRLAND
 WAL_COLORS="$HOME/.cache/wal/colors"
