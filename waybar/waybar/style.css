@@ -1,3 +1,5 @@
+@import '/home/sam/.cache/wal/colors-waybar.css';
+
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: 'JetBrainsMono Nerd Font', FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -7,33 +9,34 @@
 
 window#waybar {
   background-color: rgba(51, 60, 67, 0.0);
-  color: #d3c6aa;
+  color: @color1;
   border: none;
 }
 
 #workspaces {
-  background-color: rgba(51, 60, 67, 0.8);
+  background-color: @background;
   border-radius: 10px;
-  border: 2px solid #7fbbb3;
+  border: 2px solid @color4;
 }
 
 #workspaces button {
   transition: all 0.2s ease-in-out;
 }
 
+
 #workspaces button.active {
   transition: all 0.2s ease-in-out;
-  color: #83c092;
+  color: @color4;
 }
 
 box#window {
-  background-color: rgba(51, 60, 67, 0.8);
+  background-color: @background;
   padding-right: 5px;
   border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  border: 2px solid #7fbbb3;
-  color: #7fbbb3;
+  border: 2px solid @color4;
+  color: @color6;
 }
 
 window#waybar.empty #window {
@@ -45,47 +48,47 @@ window#waybar.empty #window {
 #cpu,
 #memory,
 #disk {
-  background-color: rgba(51, 60, 67, 0.8);
-  border-top: 2px solid #7fbbb3;
-  border-bottom: 2px solid #7fbbb3;
+  background-color: @background;
+  border-top: 2px solid @color4;
+  border-bottom: 2px solid @color4;
 }
 
 #disk {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  border-right: 2px solid #7fbbb3;
-  color: #d699b6;
+  border-right: 2px solid @color4;
+  color: @color7;
 }
 
 #cpu {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  border-left: 2px solid #7fbbb3;
+  border-left: 2px solid @color4;
   padding-left: 10px;
-  color: #83c092;
+  color: @color5;
 }
 
 #memory {
-  color: #7fbbb3;
+  color: @color6;
 }
 
 #clock {
-  background-color: rgba(51, 60, 67, 0.8);
+  background-color: @background;
   margin-right: 10px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
-  border: 2px solid #7fbbb3;
-  color: #d699b6;
+  border: 2px solid @color4;
+  color: @color7;
 }
 
 #network {
-  background-color: rgba(51, 60, 67, 0.8);
+  background-color: @background;
   margin-right: 10px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
-  border: 2px solid #7fbbb3;
-  color: #7fbbb3;
+  border: 2px solid @color4;
+  color: @color5;
 
 }

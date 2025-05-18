@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs wal and other scripts to sync colors
+
+[Service]
+Type=oneshot
+ExecStart=/home/sam/.wal-startup.sh
+
+
+[Install]
+WantedBy=graphical-session.target

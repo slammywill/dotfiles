@@ -6,7 +6,7 @@ return {
     config = function()
         require('lualine').setup({
             options = {
-                theme = 'everforest',
+                theme = 'pywal',
                 section_separators = { left = '', right = '' },
             }
         })
