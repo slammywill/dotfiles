@@ -1,8 +1,8 @@
-wal -i $HOME/wallpapers/ -n > /dev/null
+wal -i $HOME/wallpapers/ -n --recursive > /dev/null
 
 sleep 0.1
 IMAGE_LOCATION=$(< "$HOME/.cache/wal/wal")
-wallpaper set $IMAGE_LOCATION
+wallpaper set $IMAGE_LOCATION --screen all
 
 tmux source-file ~/.tmux.conf
 
