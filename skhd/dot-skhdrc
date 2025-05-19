@@ -1,8 +1,12 @@
-# Shift focus 
+# Shift focus within space
 cmd + ctrl + alt - h : yabai -m window --focus west
 cmd + ctrl + alt - j : yabai -m window --focus south
 cmd + ctrl + alt - k : yabai -m window --focus north
 cmd + ctrl + alt - l : yabai -m window --focus east
+
+# Next / prev space
+cmd + ctrl + alt + shift - h : yabai -m space --focus prev
+cmd + ctrl + alt + shift - l : yabai -m space --focus next
 
 # Focus to workspace 
 cmd + ctrl + alt - 1 : yabai -m space --focus 1
@@ -13,14 +17,10 @@ cmd + ctrl + alt - 5 : yabai -m space --focus 5
 cmd + ctrl + alt - 6 : yabai -m space --focus 6
 cmd + ctrl + alt - 7 : yabai -m space --focus 7
 cmd + ctrl + alt - 8 : yabai -m space --focus 8
-cmd + ctrl + alt - 9 : yabai -m space --focus 9
 
-# Misc
-cmd + ctrl + alt - c : yabai -m window --close
-cmd + ctrl + alt - q : open -na "kitty"
-cmd + ctrl + alt - t : open -na "Zen"
-cmd + ctrl + alt - e : open ~
-cmd + ctrl + alt - b : yabai -m space --balance
+# Special workspace
+cmd + ctrl + alt - s : yabai -m space --focus 9
+cmd + ctrl + alt + shift - s : yabai -m window --space 9; yabai -m space --focus 9; yabai -m window --focus last
 
 # Move window to workspace
 cmd + ctrl + alt + shift - 1 : yabai -m window --space 1; yabai -m space --focus 1; yabai -m window --focus last
@@ -31,4 +31,10 @@ cmd + ctrl + alt + shift - 5 : yabai -m window --space 5; yabai -m space --focus
 cmd + ctrl + alt + shift - 6 : yabai -m window --space 6; yabai -m space --focus 6; yabai -m window --focus last
 cmd + ctrl + alt + shift - 7 : yabai -m window --space 7; yabai -m space --focus 7; yabai -m window --focus last
 cmd + ctrl + alt + shift - 8 : yabai -m window --space 8; yabai -m space --focus 8; yabai -m window --focus last
-cmd + ctrl + alt + shift - 9 : yabai -m window --space 9; yabai -m space --focus 9; yabai -m window --focus last
+
+# Misc
+cmd + ctrl + alt - c : yabai -m window --close
+cmd + ctrl + alt - q : open -na "kitty"
+cmd + ctrl + alt - t : open -na "Zen"
+cmd + ctrl + alt - e : open ~
+cmd + ctrl + alt - b : yabai -m space --balance

@@ -10,6 +10,7 @@ alias lg='lazygit'
 
 alias fzf='fzf --tmux'
 alias v='nvim'
-alias tm='source ~/dotfiles/zshrc/launch_tmux.sh'
 alias la='ls -lahG --color'
+alias tmd='tmux det'
+alias tma='tmux att'
 

@@ -1,4 +1,15 @@
-wal -i $HOME/wallpapers/ -n --recursive > /dev/null
+#!/bin/bash
+
+# Stow in usr/local/bin
+
+if ! [ -f "$1" ]; then
+    echo "'$1' is not an existing file"
+    exit 1
+fi
+
+WALLPAPER_DIR="${1:-$HOME/wallpapers/}"
+
+wal -i "$WALLPAPER_DIR" -n --recursive > /dev/null
 
 sleep 0.1
 IMAGE_LOCATION=$(< "$HOME/.cache/wal/wal")

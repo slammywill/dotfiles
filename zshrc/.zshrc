@@ -16,7 +16,6 @@ if [[ $OS == "Darwin" ]]; then
     PLUGIN_PATH="/opt/homebrew/share"
     source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
     export PATH="${PATH}:/Users/samwillems/Library/Python/3.11/bin"
-    alias ct="source ~/.change-theme.sh"
 elif [[ $OS == "Linux" ]]; then
     PLUGIN_PATH="/usr/share/zsh/plugins"
     source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
