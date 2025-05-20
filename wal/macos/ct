@@ -2,7 +2,7 @@
 
 # Stow in usr/local/bin
 
-if ! [ -f "$1" ]; then
+if [ "$#" -ge 1 ] && ! [ -f "$1" ]; then
     echo "'$1' is not an existing file"
     exit 1
 fi

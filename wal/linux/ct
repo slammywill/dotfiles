@@ -1,0 +1,52 @@
+#!/bin/bash
+
+DEFAULT_WALLPAPER_DIR="$HOME/wallpapers/"
+
+# Validate input
+if [ "$#" -ge 1 ] && ! [ -f "$1" ] && ! [ -d "$1" ]; then
+    echo "'$1' is not an existing file or directory"
+    exit 1
+fi
+
+# Determine wallpaper source
+if [ "$#" -eq 0 ]; then
+    # No argument: recursively pick from default dir
+    IMAGE=$(find "$DEFAULT_WALLPAPER_DIR" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n1)
+elif [ -d "$1" ]; then
+    # Directory argument: recursively pick from it
+    IMAGE=$(find "$1" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n1)
+else
+    # File argument: use it directly
+    IMAGE="$1"
+fi
+
+echo "$IMAGE"
+wal -i "$IMAGE" > /dev/null
+
+sleep 0.1
+
+# HYPRLAND
+WAL_COLORS="$HOME/.cache/wal/colors"
+HYPR_CONF="$HOME/.cache/wal/colors-hyprland.conf"
+
+ACTIVE_COLOR=$(sed -n '5p' "$WAL_COLORS" | tr -d '#')
+INACTIVE_COLOR=$(sed -n '8p' "$WAL_COLORS" | tr -d '#')
+
+{
+  echo "general {"
+  echo "    col.active_border = rgba(${ACTIVE_COLOR}FF)"
+  echo "    col.inactive_border = rgba(${INACTIVE_COLOR}FF)"
+  echo "}"
+} > "$HYPR_CONF"
+
+# HYPRPAPER
+WALLPAPER=$(cat ~/.cache/wal/wal)
+
+hyprctl hyprpaper reload "DP-1","$WALLPAPER" > /dev/null
+hyprctl hyprpaper reload "DP-2","$WALLPAPER" > /dev/null
+
+# TMUX
+tmux source-file ~/.tmux.conf
+
+# WAYBAR
+source ~/dotfiles/waybar/waybar/launch.sh > /dev/null
