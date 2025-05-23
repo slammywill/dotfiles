@@ -23,3 +23,5 @@ if [ -n "$KITTY_SOCKET" ]; then
 else
     echo "No Kitty socket found"
 fi
+
+sketchybar --reload
