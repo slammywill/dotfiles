@@ -25,8 +25,16 @@ source $PLUGIN_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PLUGIN_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 autosuggest-execute() {
+  # Repeat last command if text buffer is empty
+  if [[ -z $BUFFER ]]; then
+    zle up-history
+    zle accept-line
+
+  # Execute autosuggestion command
+  else
     zle autosuggest-accept
     zle accept-line
+  fi
 }
 zle -N autosuggest-execute
 bindkey '^ ' autosuggest-execute

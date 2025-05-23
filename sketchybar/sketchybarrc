@@ -1,0 +1,128 @@
+
+source "$HOME/.cache/wal/colors.sh"
+
+PLUGIN_DIR="~/.config/sketchybar/plugins"
+
+fg_color="0xff${foreground:1}"
+
+
+
+############
+# DEFAULTS #
+############
+
+sketchybar --bar position=top height=40 blur_radius=20 color="0xcd${background:1}"
+
+default=(
+  margin_left=12
+  margin_right=12
+  padding_left=2
+  padding_right=2
+  icon.font="Hack Nerd Font:Bold:17.0"
+  label.font="Hack Nerd Font:Bold:14.0"
+  icon.color=$fg_color
+  label.color=$fg_color
+  icon.padding_left=4
+  icon.padding_right=4
+  label.padding_left=4
+  label.padding_right=4
+)
+sketchybar --default "${default[@]}"
+
+
+########
+# LEFT #
+########
+
+# DISK USAGE
+sketchybar -m --add item disk left \
+    --set disk icon= \
+    --set disk icon.padding_left=8 \
+    --set disk icon.padding_right=0 \
+    --set disk icon.color="0xff${color3:1}" \
+    --set disk label.padding_left=6 \
+    --set disk label.color=$fg_color \
+    --set disk background.height=21 \
+    --set disk update_freq=120 \
+    --set disk script="~/.config/sketchybar/plugins/disk.sh" \
+
+# MEMORY USAGE
+sketchybar -m --add item topmem left \
+    --set topmem icon= \
+    --set topmem icon.padding_left=8 \
+    --set topmem icon.padding_right=0 \
+    --set topmem icon.color="0xff${color4:1}" \
+    --set topmem label.padding_left=6 \
+    --set topmem label.color=$fg_color \
+    --set topmem background.height=21 \
+    --set topmem update_freq=2 \
+    --set topmem script="~/.config/sketchybar/plugins/memory.sh" \
+
+# CPU USAGE
+sketchybar -m --add item cpu_percent left \
+    --set cpu_percent icon= \
+    --set cpu_percent icon.padding_left=8 \
+    --set cpu_percent icon.padding_right=0 \
+    --set cpu_percent icon.color="0xff${color5:1}" \
+    --set cpu_percent label.padding_right=8 \
+    --set cpu_percent label.padding_left=6 \
+    --set cpu_percent label.color=$fg_color \
+    --set cpu_percent background.height=21 \
+    --set cpu_percent update_freq=2 \
+    --set cpu_percent script="~/.config/sketchybar/plugins/cpu.sh" \
+
+# CURRENT APP
+sketchybar --add item front_app left \
+    --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+    --subscribe front_app front_app_switched
+
+
+##########
+# CENTER #
+##########
+
+# MISSION CONTROL
+SPACE_ICONS=(" " " " " " " " "5" "6" "7" "8" "9")
+for i in "${!SPACE_ICONS[@]}"
+do
+  sid="$(($i+1))"
+  space=(
+    space="$sid"
+    icon="${SPACE_ICONS[i]}"
+    icon.padding_left=7
+    icon.padding_right=7
+    background.color="0x40${foreground:1}"
+    background.corner_radius=5
+    background.height=25
+    label.drawing=off
+    script="$PLUGIN_DIR/space.sh"
+    click_script="yabai -m space --focus $sid"
+  )
+  sketchybar --add space space."$sid" center --set space."$sid" "${space[@]}"
+done
+
+
+#########
+# RIGHT #
+#########
+
+# CLOCK
+sketchybar --add item clock right \
+    --set clock icon.color="0xff${color3:1}" \
+    --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
+
+# VOLUME
+sketchybar --add item volume right \
+    --set volume script="$PLUGIN_DIR/volume.sh" \
+    --set volume icon.color="0xff${color4:1}" \
+    --subscribe volume volume_change \
+
+# BATTERY
+sketchybar --add item battery right \
+    --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+    --set battery icon.color="0xff${color5:1}" \
+    --subscribe battery system_woke power_source_change \
+
+
+
+sketchybar --update

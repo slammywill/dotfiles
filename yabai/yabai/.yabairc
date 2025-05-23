@@ -33,7 +33,7 @@ yabai -m config                                 \
     split_ratio                  0.50           \
     split_type                   auto           \
     auto_balance                 off            \
-    top_padding                  12             \
+    top_padding                  52             \
     bottom_padding               12             \
     left_padding                 12             \
     right_padding                12             \
@@ -45,6 +45,10 @@ yabai -m config                                 \
     mouse_drop_action            swap
 
 
-yabai -m rule --add app="^kitty$" manage=on
+yabai -m rule --add app="^kitty$" --space=1 manage=on
+yabai -m rule --add app="^Zen$" --space=2 manage=on
+yabai -m rule --add app="^Calendar$" --space=3 manage=on
+yabai -m rule --add app="^Reminders$" --space=3 manage=on
+yabai -m rule --add app="^Music$" --space=4 manage=on
 
 echo "yabai configuration loaded.."

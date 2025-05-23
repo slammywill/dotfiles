@@ -2,10 +2,10 @@
 
 # Stow in usr/local/bin
 
-if ! [ -f "$1" ]; then
-    echo "'$1' is not an existing file"
-    exit 1
-fi
+# if ! [ -f "$1" ]; then
+#     echo "'$1' is not an existing file"
+#     exit 1
+# fi
 
 WALLPAPER_DIR="${1:-$HOME/wallpapers/}"
 
