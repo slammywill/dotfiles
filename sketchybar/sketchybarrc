@@ -12,14 +12,15 @@ fg_color="0xff${foreground:1}"
 ############
 
 sketchybar --bar position=top height=40 blur_radius=20 color="0xcd${background:1}"
+sketchybar --hotload true
 
 default=(
   margin_left=12
   margin_right=12
   padding_left=2
   padding_right=2
-  icon.font="Hack Nerd Font:Bold:17.0"
-  label.font="Hack Nerd Font:Bold:14.0"
+  icon.font="MartianMono Nerd Font:Bold:17.0"
+  label.font="MartianMono Nerd Font:Bold:14.0"
   icon.color=$fg_color
   label.color=$fg_color
   icon.padding_left=4
@@ -82,7 +83,7 @@ sketchybar --add item front_app left \
 ##########
 
 # MISSION CONTROL
-SPACE_ICONS=(" " " " " " " " "5" "6" "7" "8" "9")
+SPACE_ICONS=(" " " " " " " " " " " " " " " " " ")
 for i in "${!SPACE_ICONS[@]}"
 do
   sid="$(($i+1))"
@@ -91,15 +92,17 @@ do
     icon="${SPACE_ICONS[i]}"
     icon.padding_left=7
     icon.padding_right=7
-    background.color="0x40${foreground:1}"
-    background.corner_radius=5
-    background.height=25
+    background.drawing=off
     label.drawing=off
     script="$PLUGIN_DIR/space.sh"
     click_script="yabai -m space --focus $sid"
   )
   sketchybar --add space space."$sid" center --set space."$sid" "${space[@]}"
 done
+
+sketchybar --add item space_listener center \
+    --set space_listener script="~/.config/sketchybar/plugins/spaces.sh" \
+    --subscribe space_listener space_change space_windows_change front_app_switched
 
 
 #########

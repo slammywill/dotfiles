@@ -123,7 +123,7 @@ fi
 # shellcheck disable=SC1143,SC2128
 if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-    "tmux_session_info $color3 $foreground"
+    "tmux_session_info $color3 $background"
 		#"hostname $yellow $black"
 		#"mode_indicator 165 0"
 		#"ifstat 30 255"
@@ -146,7 +146,7 @@ fi
 if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
 		#"earthquake 3 0"
-		"pwd $color3 $foreground"
+		"pwd $color3 $background"
 		#"mailcount 9 255"
 		#"now_playing $color4 $foreground"
 		#"cpu 240 136"
