@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Get disk usage info for root volume
-disk_info=$(df -H / | tail -1)
+disk_info=$(df / | tail -1)
 
 # Extract used and total disk space in GB
 avail=$(echo "$disk_info" | awk '{print $4}' | sed 's/G//')
