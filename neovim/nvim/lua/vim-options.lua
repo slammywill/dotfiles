@@ -19,6 +19,7 @@ vim.opt.scrolloff = 8 -- Keep 8 lines above / below when vertically scolling
 vim.opt.sidescrolloff = 8 -- Keep 8 columns left / right when horizontally scrolling
 vim.g["test#strategy"] = "vimux" -- Set tests to use vimux to display results
 vim.g.tmux_navigator_no_mappings = 1 -- Removes default tmux navigator bindings
+vim.opt.compatible = false
 
 --------------
 -- KEYBINDS --

@@ -13,7 +13,15 @@ wal -i "$WALLPAPER_DIR" -n --recursive > /dev/null
 
 sleep 0.1
 IMAGE_LOCATION=$(< "$HOME/.cache/wal/wal")
-wallpaper set $IMAGE_LOCATION --screen all
+
+osascript << EOF
+tell application "System Events"
+    -- Get all desktops and set wallpaper
+    repeat with currentDesktop in (every desktop)
+        set picture of currentDesktop to "$IMAGE_LOCATION"
+    end repeat
+end tell
+EOF
 
 tmux source-file ~/.tmux.conf
 
@@ -23,3 +31,5 @@ if [ -n "$KITTY_SOCKET" ]; then
 else
     echo "No Kitty socket found"
 fi
+
+sketchybar --reload

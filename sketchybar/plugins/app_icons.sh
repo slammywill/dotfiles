@@ -1,10 +1,10 @@
- Default fallback icon
 DEFAULT_ICON=" "
 
 # Mapping function
 get_icon_for_app() {
   case "$1" in
     "Activity Monitor") echo " " ;;
+    "Archive Utility") echo " " ;;
     "Calendar") echo " " ;;
     "Cursor") echo " " ;;
     "Discord") echo " " ;;
@@ -18,6 +18,9 @@ get_icon_for_app() {
     "Mattermost") echo "󰚢 " ;;
     "Messages") echo "󰍡 " ;;
     "Music") echo " " ;;
+    "Notes") echo " " ;;
+    "Postman") echo " " ;;
+    "Preview") echo " " ;;
     "Reminders") echo "󱃔 " ;;
     "Spotify") echo " " ;;
     "System Settings") echo "󰒓 " ;;
