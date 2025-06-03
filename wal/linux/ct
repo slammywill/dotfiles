@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Stow in usr/local/bin
+
 DEFAULT_WALLPAPER_DIR="$HOME/wallpapers/"
 
 # Validate input
