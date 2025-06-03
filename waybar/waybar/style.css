@@ -9,12 +9,12 @@
 window#waybar {
   background-color: @background;
   color: @foreground;
-  border-bottom: 2px solid @color3;
+  border-bottom: 2px solid @color4;
 }
 
 #workspaces {
   background-color: @background;
-  border-bottom: 2px solid @color3;
+  border-bottom: 2px solid @color4;
 }
 
 #workspaces button {
@@ -38,7 +38,7 @@ box#window {
   padding-left: 10px;
   padding-right: 10px;
   color: @color6;
-  border-bottom: 2px solid @color3;
+  border-bottom: 2px solid @color4;
 }
 
 window#waybar.empty #window {
@@ -49,7 +49,7 @@ window#waybar.empty #window {
 #cpu,
 #memory,
 #disk {
-  border-bottom: 2px solid @color3;
+  border-bottom: 2px solid @color4;
   padding-left: 5px;
 }
 
@@ -66,17 +66,18 @@ window#waybar.empty #window {
   color: @color5;
 }
 
+#network {
+  background-color: @background;
+  border-bottom: 2px solid @color4;
+  padding-right: 10px;
+  color: @color4;
+}
+
 #clock {
   background-color: @background;
   color: @color3;
   padding-right: 24px;
-  border-bottom: 2px solid @color3;
+  border-bottom: 2px solid @color4;
 }
 
-#network {
-  background-color: @background;
-  border-bottom: 2px solid @color3;
-  padding-right: 10px;
-  color: @color3;
-}
 

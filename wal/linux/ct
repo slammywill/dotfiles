@@ -22,7 +22,6 @@ else
     IMAGE="$1"
 fi
 
-echo "$IMAGE"
 wal -i "$IMAGE" > /dev/null
 
 sleep 0.1
@@ -42,10 +41,14 @@ INACTIVE_COLOR=$(sed -n '8p' "$WAL_COLORS" | tr -d '#')
 } > "$HYPR_CONF"
 
 # HYPRPAPER
+SOCK=$(find /run/user/$(id -u)/hypr -name '*.sock' | grep hyprpaper | head -n1)
+HYPRLAND_INSTANCE_SIGNATURE=$(basename "$(dirname "$SOCK")")
+export HYPRLAND_INSTANCE_SIGNATURE
+
 WALLPAPER=$(cat ~/.cache/wal/wal)
 
-hyprctl hyprpaper reload "DP-1","$WALLPAPER" > /dev/null
-hyprctl hyprpaper reload "DP-2","$WALLPAPER" > /dev/null
+hyprctl hyprpaper reload "DP-1,$WALLPAPER" > /dev/null
+hyprctl hyprpaper reload "DP-2,$WALLPAPER" > /dev/null
 
 # TMUX
 tmux source-file ~/.tmux.conf
