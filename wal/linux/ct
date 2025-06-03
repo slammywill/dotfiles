@@ -50,3 +50,6 @@ tmux source-file ~/.tmux.conf
 
 # WAYBAR
 source ~/dotfiles/waybar/waybar/launch.sh > /dev/null
+
+# TOFI
+source ~/.config/tofi/.pywal-color-patch.sh 

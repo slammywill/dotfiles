@@ -3,16 +3,16 @@
 font = "JetBrainsMono Nerd Font"
 font-size = 16
 
-text-color = #9dc9bc
-selection-color = #67CD3B
-prompt-color = #249762
+text-color = {foreground}
+selection-color = {color2}
+prompt-color = {color4}
 
 ### WINDOW THEME ###
 
-background-color = #0b1512
+background-color = {background}
 
 border-width = 2
-border-color = #47AA4A
+border-color = {color5}
 corner-radius = 10
 
 outline-width = 0

@@ -4,91 +4,79 @@
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: 'JetBrainsMono Nerd Font', FontAwesome, Roboto, Helvetica, Arial, sans-serif;
   font-size: 13px;
-  border: none;
 }
 
 window#waybar {
-  background-color: rgba(51, 60, 67, 0.0);
-  color: @color1;
-  border: none;
+  background-color: @background;
+  color: @foreground;
+  border-bottom: 2px solid @color3;
 }
 
 #workspaces {
   background-color: @background;
-  border-radius: 10px;
-  border: 2px solid @color4;
+  border-bottom: 2px solid @color3;
 }
 
 #workspaces button {
   transition: all 0.2s ease-in-out;
+  color: @foreground;
+}
+
+#workspaces button.hover {
+    background-color: @foreground;
 }
 
 
 #workspaces button.active {
   transition: all 0.2s ease-in-out;
-  color: @color4;
+  color: @color2;
 }
 
 box#window {
   background-color: @background;
   padding-right: 5px;
-  border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  border: 2px solid @color4;
   color: @color6;
+  border-bottom: 2px solid @color3;
 }
 
 window#waybar.empty #window {
   background: transparent;
-  border:none;
   padding: 0;
 }
 
 #cpu,
 #memory,
 #disk {
-  background-color: @background;
-  border-top: 2px solid @color4;
-  border-bottom: 2px solid @color4;
+  border-bottom: 2px solid @color3;
+  padding-left: 5px;
 }
 
 #disk {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-right: 2px solid @color4;
-  color: @color7;
-}
-
-#cpu {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-left: 2px solid @color4;
-  padding-left: 10px;
-  color: @color5;
+  color: @color3;
+  padding-left: 24px;
 }
 
 #memory {
-  color: @color6;
+  color: @color4;
+}
+
+#cpu {
+  color: @color5;
 }
 
 #clock {
   background-color: @background;
-  margin-right: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  border: 2px solid @color4;
-  color: @color7;
+  color: @color3;
+  padding-right: 24px;
+  border-bottom: 2px solid @color3;
 }
 
 #network {
   background-color: @background;
-  margin-right: 10px;
-  padding-left: 10px;
+  border-bottom: 2px solid @color3;
   padding-right: 10px;
-  border-radius: 10px;
-  border: 2px solid @color4;
-  color: @color5;
-
+  color: @color3;
 }
+

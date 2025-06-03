@@ -1,14 +1,13 @@
 // -*- mode: jsonc -*-
 {
     "layer": "top",
-    "height": 30,
-    "margin-top": 10,
-    "margin-left": 20,
-    "margin-right": 20,
+    "height": 35,
     "reload_style_on_change": true,
 
     "modules-left": [
-        "clock",
+        "disk",
+        "memory",
+        "cpu",
         "hyprland/window"
     ],
     "modules-center": [
@@ -16,9 +15,7 @@
     ],
     "modules-right": [
         "network",
-        "cpu",
-        "memory",
-        "disk"
+        "clock",
     ],
     // Modules configuration
    "hyprland/workspaces": {
@@ -39,7 +36,7 @@
     "hyprland/window": {
         "format": "{title}",
         "separate-outputs": true,
-        "icon": true,
+        "icon": false,
         "max-length": 25, // In characters
     },
     "cpu": {
@@ -54,7 +51,10 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-wifi": "{icon} {essid} ({signalStrength}%)",
+        "format-icons": { 
+            "wifi": " "
+        },
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
@@ -82,7 +82,7 @@
     },
   "clock": {
       "timezone": "Pacific/Auckland",
-      "format": "{:%H:%M %a}",
+      "format": " {:%H:%M %a}",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
       "format-alt": "{:%Y-%m-%d}"
     }
