@@ -54,7 +54,8 @@ hyprctl hyprpaper reload "DP-2,$WALLPAPER" > /dev/null
 tmux source-file ~/.tmux.conf
 
 # WAYBAR
-source ~/dotfiles/waybar/waybar/launch.sh > /dev/null
+source ~/.config/waybar/.pywal-color-patch.sh
+source ~/.config/waybar/.launch.sh > /dev/null
 
 # TOFI
 source ~/.config/tofi/.pywal-color-patch.sh 
