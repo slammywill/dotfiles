@@ -9,7 +9,7 @@ alias gdf='git diff'
 alias lg='lazygit'
 
 alias fzf='fzf --tmux'
-alias v='nvim'
+alias v='nvim --listen /tmp/nvim'
 alias la='ls -lahG --color'
 alias tmd='tmux det'
 alias tma='tmux att'

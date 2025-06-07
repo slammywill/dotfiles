@@ -55,7 +55,10 @@ tmux source-file ~/.tmux.conf
 
 # WAYBAR
 source ~/.config/waybar/.pywal-color-patch.sh
-source ~/.config/waybar/.launch.sh > /dev/null
+pkill -SIGUSR2 waybar
 
 # TOFI
-source ~/.config/tofi/.pywal-color-patch.sh 
+source ~/.config/tofi/.pywal-color-patch.sh
+
+# NEOVIM
+nvr --servername /tmp/nvim --remote-send ':colorscheme pywal<CR>'
