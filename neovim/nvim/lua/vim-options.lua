@@ -20,6 +20,7 @@ vim.opt.sidescrolloff = 8 -- Keep 8 columns left / right when horizontally scrol
 vim.g["test#strategy"] = "vimux" -- Set tests to use vimux to display results
 vim.g.tmux_navigator_no_mappings = 1 -- Removes default tmux navigator bindings
 vim.opt.compatible = false
+vim.cmd('filetype plugin on')
 
 --------------
 -- KEYBINDS --
@@ -58,6 +59,8 @@ vim.keymap.set("n", "<leader>x", ":x<CR>", { desc = "Save and quit buffer" })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit buffer" })
 vim.keymap.set("n", "<leader>s", ":e#<CR>", {silent = true, desc = "Go to last opened file"})
 vim.keymap.set("n", "<c-\\>", "i") -- Insert mode when opening terminal
+
+vim.keymap.set("n", "<leader>ll", ":VimtexCompile<CR>", { desc = "Vimtex compile" })
 
 -----------------
 -- DIAGNOSTICS --

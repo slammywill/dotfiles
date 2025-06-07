@@ -9,7 +9,7 @@ prompt-color = {color4}
 
 ### WINDOW THEME ###
 
-background-color = {background}
+background-color = {background}cd
 
 border-width = 2
 border-color = {color5}
