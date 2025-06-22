@@ -75,6 +75,7 @@ sketchybar -m --add item cpu_percent left \
 # CURRENT APP
 sketchybar --add item front_app left \
     --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+    --set front_app label.color=$fg_color \
     --subscribe front_app front_app_switched
 
 
@@ -92,7 +93,7 @@ do
     icon="${SPACE_ICONS[i]}"
     icon.padding_left=7
     icon.padding_right=7
-    background.drawing=off
+    background.drawing=on
     label.drawing=off
     script="$PLUGIN_DIR/space.sh"
     click_script="yabai -m space --focus $sid"
@@ -112,18 +113,21 @@ sketchybar --add item space_listener center \
 # CLOCK
 sketchybar --add item clock right \
     --set clock icon.color="0xff${color3:1}" \
+    --set clock label.color=$fg_color \
     --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
 
 # VOLUME
 sketchybar --add item volume right \
     --set volume script="$PLUGIN_DIR/volume.sh" \
     --set volume icon.color="0xff${color4:1}" \
+    --set volume label.color=$fg_color \
     --subscribe volume volume_change \
 
 # BATTERY
 sketchybar --add item battery right \
     --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
     --set battery icon.color="0xff${color5:1}" \
+    --set battery label.color=$fg_color \
     --subscribe battery system_woke power_source_change \
 
 

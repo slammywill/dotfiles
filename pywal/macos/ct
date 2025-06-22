@@ -23,13 +23,18 @@ tell application "System Events"
 end tell
 EOF
 
+# TMUX
 tmux source-file ~/.tmux.conf
 
+# KITTY 
 KITTY_SOCKET=$(find /tmp/mykitty-*)
-if [ -n "$KITTY_SOCKET" ]; then
-    kitty @ --to=unix:$KITTY_SOCKET set-colors --all --configured ~/.cache/wal/colors-kitty.conf
-else
-    echo "No Kitty socket found"
-fi
+kitty @ --to=unix:$KITTY_SOCKET set-colors --all --configured ~/.cache/wal/colors-kitty.conf
 
-sketchybar --reload
+# SKETCHYBAR
+source ~/.config/sketchybar/sketchybarrc > /dev/null
+
+# NEOVIM
+for NVIM_SOCKET in $(find /tmp/nvim-*.sock);
+do
+    nvr --servername $NVIM_SOCKET --remote-send ':colorscheme pywal<CR>'
+done

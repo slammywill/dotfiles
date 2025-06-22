@@ -41,3 +41,5 @@ cmd + ctrl + alt + shift - j : yabai -m window --resize bottom:0:100 || yabai -m
 cmd + ctrl + alt + shift - k : yabai -m window --resize bottom:0:-100 || yabai -m window --resize top:0:-100
 cmd + ctrl + alt + shift - l : yabai -m window --resize right:100:0 || yabai -m window --resize left:100:0
 
+# Change theme
+cmd + ctrl + alt + shift - c : /usr/local/bin/ct

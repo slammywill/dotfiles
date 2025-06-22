@@ -5,6 +5,7 @@ get_icon_for_app() {
   case "$1" in
     "Activity Monitor") echo " " ;;
     "Archive Utility") echo " " ;;
+    "Calculator") echo " " ;;
     "Calendar") echo " " ;;
     "Cursor") echo " " ;;
     "Discord") echo " " ;;
@@ -14,7 +15,7 @@ get_icon_for_app() {
     "Intellij IDEA") echo "  " ;;
     "Jellyfin") echo " " ;;
     "Karabiner-Elements") echo "󱓀 " ;;
-    "kitty") echo " " ;;
+    "kitty") echo "󰄛 " ;;
     "Mattermost") echo "󰚢 " ;;
     "Messages") echo "󰍡 " ;;
     "Music") echo " " ;;
@@ -23,8 +24,10 @@ get_icon_for_app() {
     "Preview") echo " " ;;
     "Reminders") echo "󱃔 " ;;
     "Spotify") echo " " ;;
+    "Steam") echo " " ;;
     "System Settings") echo "󰒓 " ;;
     "Visual Studio Code") echo " " ;;
+    "Zathura") echo " " ;;
     "Zen") echo "󰖟 " ;;
     *) echo "$DEFAULT_ICON" ;;
   esac
