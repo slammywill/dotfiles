@@ -14,6 +14,7 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
+        "mpris",
         "network",
         "clock",
     ],
@@ -51,39 +52,23 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{icon} {essid} ({signalStrength}%)",
-        "format-icons": { 
-            "wifi": " "
-        },
+        "format-wifi": " {icon} {essid} ({signalStrength}%)",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
   "clock": {
       "timezone": "Pacific/Auckland",
-      "format": " {:%H:%M %a}",
+      "format": " {:%I:%M%p}",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
       "format-alt": "{:%Y-%m-%d}"
+    },
+    "mpris": {
+        "name": "mpris",
+        "format": " {artist} - {title}",
+        "format-paused": " {artist} - {title}",
+        "max-length": 40,
     }
 }
