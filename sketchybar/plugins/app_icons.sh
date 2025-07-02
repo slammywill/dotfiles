@@ -7,6 +7,7 @@ get_icon_for_app() {
     "Archive Utility") echo " " ;;
     "Calculator") echo " " ;;
     "Calendar") echo " " ;;
+    "Code") echo " " ;;
     "Cursor") echo " " ;;
     "Discord") echo " " ;;
     "Docker Desktop") echo " " ;;
@@ -26,9 +27,9 @@ get_icon_for_app() {
     "Spotify") echo " " ;;
     "Steam") echo " " ;;
     "System Settings") echo "󰒓 " ;;
-    "Visual Studio Code") echo " " ;;
+    "uavsar") echo "󰦄 " ;;
     "Zathura") echo " " ;;
-    "Zen") echo "󰖟 " ;;
+    "Zen") echo "⚡" ;;
     *) echo "$DEFAULT_ICON" ;;
   esac
 }

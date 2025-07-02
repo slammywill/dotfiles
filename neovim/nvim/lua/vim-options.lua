@@ -55,12 +55,11 @@ vim.keymap.set("n", "<leader>tv", ":TestVisit<CR>", { desc = "Visit test file " 
 vim.keymap.set("n", "<leader>y", ":%yank<CR>", { desc = "Yank entire buffer" })
 vim.keymap.set("n", "<leader>v", "ggVG", { desc = "Select entire buffer" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save buffer" })
-vim.keymap.set("n", "<leader>x", ":x<CR>", { desc = "Save and quit buffer" })
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit buffer" })
 vim.keymap.set("n", "<leader>s", ":e#<CR>", {silent = true, desc = "Go to last opened file"})
 vim.keymap.set("n", "<c-\\>", "i") -- Insert mode when opening terminal
 
-vim.keymap.set("n", "<leader>ll", ":VimtexCompile<CR>", { desc = "Vimtex compile" })
+vim.keymap.set("n", "<leader>xl", ":VimtexCompile<CR>", { desc = "Vimtex compile" })
 
 -----------------
 -- DIAGNOSTICS --
