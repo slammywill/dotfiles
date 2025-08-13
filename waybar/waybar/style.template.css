@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-  background-color: rgba({background-rgb}, 0.8);
+  background-color: rgba({background-rgb}, 0.7);
   color: {foreground};
 }
 
@@ -32,7 +32,7 @@ box#window {
   padding-right: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  color: {color6};
+  color: {color5};
 }
 
 window#waybar.empty #window {
@@ -69,8 +69,8 @@ window#waybar.empty #window {
   padding-right: 24px;
 }
 
-#mpris {
-  color: {color5};
+#custom-mpris {
+  color: {color6};
   padding-right: 10px;
 }
 
