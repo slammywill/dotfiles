@@ -17,6 +17,7 @@ get_icon_for_app() {
     "Jellyfin") echo " " ;;
     "Karabiner-Elements") echo "󱓀 " ;;
     "kitty") echo "󰄛 " ;;
+    "Obsidian") echo " " ;;
     "Mattermost") echo "󰚢 " ;;
     "Messages") echo "󰍡 " ;;
     "Music") echo " " ;;

@@ -33,7 +33,7 @@ yabai -m config                                 \
     split_ratio                  0.50           \
     split_type                   auto           \
     auto_balance                 off            \
-    top_padding                  52             \
+    top_padding                  51             \
     bottom_padding               12             \
     left_padding                 12             \
     right_padding                12             \
@@ -53,5 +53,6 @@ yabai -m rule --add app="^Music$" --space=4 manage=on
 
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Notes$" manage=off
 
 echo "yabai configuration loaded.."

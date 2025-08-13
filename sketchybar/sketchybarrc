@@ -11,7 +11,7 @@ fg_color="0xff${foreground:1}"
 # DEFAULTS #
 ############
 
-sketchybar --bar position=top height=40 blur_radius=20 color="0xcd${background:1}"
+sketchybar --bar position=top height=40 blur_radius=20 color="0xb2${background:1}"
 sketchybar --hotload true
 
 default=(

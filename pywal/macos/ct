@@ -14,12 +14,12 @@ wal -i "$WALLPAPER_DIR" -n --recursive > /dev/null
 sleep 0.1
 IMAGE_LOCATION=$(< "$HOME/.cache/wal/wal")
 
-osascript << EOF
+osascript <<EOF
 tell application "System Events"
-    -- Get all desktops and set wallpaper
-    repeat with currentDesktop in (every desktop)
-        set picture of currentDesktop to "$IMAGE_LOCATION"
-    end repeat
+  set theDesktops to a reference to every desktop
+  repeat with d in theDesktops
+    set picture of d to POSIX file "$IMAGE_LOCATION"
+  end repeat
 end tell
 EOF
 
@@ -27,8 +27,10 @@ EOF
 tmux source-file ~/.tmux.conf
 
 # KITTY 
-KITTY_SOCKET=$(find /tmp/mykitty-*)
-kitty @ --to=unix:$KITTY_SOCKET set-colors --all --configured ~/.cache/wal/colors-kitty.conf
+for KITTY_SOCKET in $(find /tmp/mykitty-*)
+do
+    kitty @ --to=unix:$KITTY_SOCKET set-colors --all --configured ~/.cache/wal/colors-kitty.conf
+done
 
 # SKETCHYBAR
 source ~/.config/sketchybar/sketchybarrc > /dev/null

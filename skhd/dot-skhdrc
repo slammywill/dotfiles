@@ -30,7 +30,7 @@ cmd + ctrl + alt - q : open -a "kitty"
 cmd + ctrl + alt - e : open ~
 cmd + ctrl + alt - f : yabai -m window --toggle float
 cmd + ctrl + alt - c : ~/.close-or-quit.sh
-cmd + ctrl + alt + shift - r : yabai --restart-service
+cmd + ctrl + alt + shift - r : yabai --restart-service && sketchybar --reload
 
 # Swap to prev space
 cmd + ctrl + alt - s : yabai -m space --focus recent

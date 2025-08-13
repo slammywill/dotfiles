@@ -1,4 +1,4 @@
-~/dotfiles/zshrc/launch.sh
+~/.launch.sh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -42,6 +42,7 @@ bindkey '^ ' autosuggest-execute
 
 export EDITOR="nvim"
 export NVIM_LISTEN_ADDRESS=/tmp/nvim
+export KITTY_ENABLE_IMAGE_PROTOCOL
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
