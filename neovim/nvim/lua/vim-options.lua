@@ -77,7 +77,8 @@ vim.diagnostic.config({
 -----------
 vim.filetype.add({
     extension = {
-        svelte = "svelte";
+        svelte = "svelte",
+		typ = "typst",
     }
 })
 

@@ -12,4 +12,6 @@ alias v='nvim --listen /tmp/nvim-$(date +%s%N).sock'
 alias la='ls -lahG --color'
 alias tmd='tmux det'
 alias tma='tmux att'
-
+alias aseprite='/Users/samwillems/src/misc/aseprite/build/bin/aseprite'
+alias ..='cd ..'
+alias ...='cd ../..'
