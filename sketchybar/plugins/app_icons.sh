@@ -20,6 +20,9 @@ get_icon_for_app() {
     "Obsidian") echo " " ;;
     "Mattermost") echo "󰚢 " ;;
     "Messages") echo "󰍡 " ;;
+    "Microsoft Word") echo "󱎒 " ;;
+    "Microsoft Excel") echo "󱎏 " ;;
+    "Microsoft PowerPoint") echo "󱎐 " ;;
     "Music") echo " " ;;
     "Notes") echo " " ;;
     "Postman") echo " " ;;
@@ -30,7 +33,7 @@ get_icon_for_app() {
     "System Settings") echo "󰒓 " ;;
     "uavsar") echo "󰦄 " ;;
     "Zathura") echo " " ;;
-    "Zen") echo "⚡" ;;
+    "Zen") echo " " ;;
     *) echo "$DEFAULT_ICON" ;;
   esac
 }

@@ -40,3 +40,6 @@ for NVIM_SOCKET in $(find /tmp/nvim-*.sock);
 do
     nvr --servername $NVIM_SOCKET --remote-send ':colorscheme pywal<CR>'
 done
+
+# OBSIDIAN
+source ~/.obsidian-pywal.sh

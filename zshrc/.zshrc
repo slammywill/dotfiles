@@ -9,6 +9,8 @@ fi
 
 source ~/.aliases
 
+set -o vi
+
 OS=$(uname)
 PLUGIN_PATH=""
 
