@@ -16,7 +16,9 @@ get_icon_for_app() {
     "Intellij IDEA") echo "  " ;;
     "Jellyfin") echo " " ;;
     "Karabiner-Elements") echo "󱓀 " ;;
+    "Kindle") echo " " ;;
     "kitty") echo "󰄛 " ;;
+    "Live") echo "󰽰" ;;
     "Obsidian") echo " " ;;
     "Mattermost") echo "󰚢 " ;;
     "Messages") echo "󰍡 " ;;

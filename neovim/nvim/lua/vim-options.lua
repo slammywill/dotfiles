@@ -58,7 +58,8 @@ vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit buffer" })
 vim.keymap.set("n", "<leader>s", ":e#<CR>", { silent = true, desc = "Go to last opened file" })
 vim.keymap.set("n", "<c-\\>", "i") -- Insert mode when opening terminal
 
-vim.keymap.set("n", "<leader>xl", ":VimtexCompile<CR>", { desc = "Vimtex compile" })
+vim.keymap.set("n", "<leader>xv", ":VimtexCompile<CR>", { desc = "Vimtex compile" })
+vim.keymap.set("n", "<leader>xt", ":TypstPreview<CR>", { desc = "Start typst preview" })
 
 -----------------
 -- DIAGNOSTICS --
