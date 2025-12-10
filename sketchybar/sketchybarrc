@@ -1,25 +1,26 @@
-
 source "$HOME/.cache/wal/colors.sh"
-
 PLUGIN_DIR="~/.config/sketchybar/plugins"
 
 fg_color="0xff${foreground:1}"
 bg_color="0xff${background:1}"
+
+BORDER_RADIUS=15
+BORDER_SIDE_PAD=12
 
 
 ############
 # DEFAULTS #
 ############
 
-sketchybar --bar                \
-    margin=12                   \
-    y_offset=6                  \
-    corner_radius=12            \
-    padding_left=5              \
-    padding_right=5             \
-    position=top                \
-    height=40                   \
-    blur_radius=20              \
+sketchybar --bar                                                                    \
+    margin=12                                                                       \
+    y_offset=6                                                                      \
+    corner_radius=12                                                                \
+    padding_left=5                                                                  \
+    padding_right=5                                                                 \
+    position=top                                                                    \
+    height=40                                                                       \
+    blur_radius=20                                                                  \
     color="0xb2${background:1}"
 
 sketchybar --hotload true
@@ -38,96 +39,98 @@ sketchybar --default "${default[@]}"
 ########
 
 # APPLE MENU
-sketchybar --add item apple.icon left                   \
-    --set apple.icon                                    \
-        icon=                                          \
-        icon.color="0xff${color1:1}"                    \
-        icon.padding_left=10                            \
-        icon.padding_right=10                           \
-        label.color=$fg_color                           \
-        y_offset=1                                      \
-        popup.background.drawing=on                     \
-        popup.y_offset=4                                \
-        popup.background.color="0xb2${background:1}"    \
-        popup.background.margin_top=0                   \
-        popup.background.border_width=2                 \
-        popup.background.corner_radius=12               \
-        popup.background.border_color="0xff${color1:1}" \
-        click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
-    --add item apple.settings popup.apple.icon          \
-    --set apple.settings                                \
-        icon=                                          \
-        icon.padding_left=8                             \
-        label="System Settings"                         \
-        label.padding_left=2                            \
-        label.padding_right=8                           \
-        click_script="open -a 'System Settings'; sketchybar -m --set apple.icon popup.drawing=off" \
-    --add item apple.monitor popup.apple.icon           \
-    --set apple.monitor                                 \
-        icon=                                          \
-        icon.padding_left=8                             \
-        label="Activity Monitor"                        \
-        label.padding_left=2                            \
-        label.padding_right=8                           \
-        click_script="open -a 'Activity Monitor'; sketchybar -m --set apple.icon popup.drawing=off"
+sketchybar --add item apple.icon left                                               \
+    --set apple.icon                                                                \
+        icon=                                                                      \
+        icon.color="0xff${color1:1}"                                                \
+        icon.padding_left=10                                                        \
+        icon.padding_right=10                                                       \
+        label.color=$fg_color                                                       \
+        y_offset=1                                                                  \
+        popup.background.drawing=on                                                 \
+        popup.y_offset=4                                                            \
+        popup.background.color="0xb2${background:1}"                                \
+        popup.background.margin_top=0                                               \
+        popup.background.border_width=2                                             \
+        popup.background.corner_radius=$BORDER_RADIUS                               \
+        popup.background.border_color="0xff${color1:1}"                             \
+        click_script="sketchybar -m --set \$NAME popup.drawing=toggle"              \
+    --add item apple.settings popup.apple.icon                                      \
+    --set apple.settings                                                            \
+        icon=                                                                      \
+        icon.padding_left=8                                                         \
+        label="System Settings"                                                     \
+        label.padding_left=2                                                        \
+        label.padding_right=8                                                       \
+        click_script="open -a 'System Settings';                                    \
+            sketchybar -m --set apple.icon popup.drawing=off"                       \
+    --add item apple.monitor popup.apple.icon                                       \
+    --set apple.monitor                                                             \
+        icon=                                                                      \
+        icon.padding_left=8                                                         \
+        label="Activity Monitor"                                                    \
+        label.padding_left=2                                                        \
+        label.padding_right=8                                                       \
+        click_script="open -a 'Activity Monitor';                                   \
+            sketchybar -m --set apple.icon popup.drawing=off"
 
 # DISK USAGE
-sketchybar --add item disk left         \
-    --set disk                          \
-        icon=                          \
-        icon.color="0xff${color2:1}"    \
-        icon.padding_left=8             \
-        label.color=$fg_color           \
-        label.padding_left=2            \
-        label.padding_right=8           \
-        update_freq=120                 \
+sketchybar --add item disk left                                                     \
+    --set disk                                                                      \
+        icon=                                                                      \
+        icon.color="0xff${color2:1}"                                                \
+        icon.padding_left=$BORDER_SIDE_PAD                                          \
+        label.color=$fg_color                                                       \
+        label.padding_left=2                                                        \
+        label.padding_right=8                                                       \
+        update_freq=120                                                             \
         script="~/.config/sketchybar/plugins/disk.sh" 
 
 # MEMORY USAGE
-sketchybar --add item topmem left       \
-    --set topmem                        \
-        icon=                          \
-        icon.color="0xff${color2:1}"    \
-        label.color=$fg_color           \
-        label.padding_left=2            \
-        label.padding_right=8           \
-        update_freq=2                   \
+sketchybar --add item topmem left                                                   \
+    --set topmem                                                                    \
+        icon=                                                                      \
+        icon.color="0xff${color2:1}"                                                \
+        label.color=$fg_color                                                       \
+        label.padding_left=2                                                        \
+        label.padding_right=8                                                       \
+        update_freq=2                                                               \
         script="~/.config/sketchybar/plugins/memory.sh"
 
 # CPU USAGE
-sketchybar --add item cpu_percent left  \
-    --set cpu_percent                   \
-        icon=                          \
-        icon.color="0xff${color2:1}"    \
-        label.color=$fg_color           \
-        label.padding_left=2            \
-        label.padding_right=8           \
-        update_freq=2                   \
+sketchybar --add item cpu_percent left                                              \
+    --set cpu_percent                                                               \
+        icon=                                                                      \
+        icon.color="0xff${color2:1}"                                                \
+        label.color=$fg_color                                                       \
+        label.padding_left=2                                                        \
+        label.padding_right=$BORDER_SIDE_PAD                                        \
+        update_freq=2                                                               \
         script="~/.config/sketchybar/plugins/cpu.sh"
 
 # BRACKET AROUND SYS INFO
-sketchybar --add bracket sys_info disk topmem cpu_percent   \
-    --set sys_info                                          \
-        background.color=$bg_color                          \
-        background.height=30                                \
-        background.border_width=2                           \
-        background.corner_radius=6                          \
+sketchybar --add bracket sys_info disk topmem cpu_percent                           \
+    --set sys_info                                                                  \
+        background.color=$bg_color                                                  \
+        background.height=30                                                        \
+        background.border_width=2                                                   \
+        background.corner_radius=$BORDER_RADIUS                                     \
         background.border_color="0xff${color2:1}"
 
 # CURRENT APP
-sketchybar --add item front_app left                \
-    --subscribe front_app                           \
-        front_app_switched                          \
-    --set front_app                                 \
-        label.color=$fg_color                       \
-        label.padding_left=8                        \
-        label.padding_right=8                       \
-        background.color=$bg_color                  \
-        background.height=30                        \
-        background.border_width=2                   \
-        background.corner_radius=6                  \
-        background.border_color="0xff${color3:1}"   \
-        background.padding_left=5                   \
+sketchybar --add item front_app left                                                \
+    --subscribe front_app                                                           \
+        front_app_switched                                                          \
+    --set front_app                                                                 \
+        label.color=$fg_color                                                       \
+        label.padding_left=$BORDER_SIDE_PAD                                         \
+        label.padding_right=$BORDER_SIDE_PAD                                        \
+        background.color=$bg_color                                                  \
+        background.height=30                                                        \
+        background.border_width=2                                                   \
+        background.corner_radius=$BORDER_RADIUS                                     \
+        background.border_color="0xff${color3:1}"                                   \
+        background.padding_left=5                                                   \
         script="$PLUGIN_DIR/front_app.sh"
 
 
@@ -141,11 +144,11 @@ for i in "${!SPACE_ICONS[@]}"
 do
   sid="$(($i+1))"
   if [ "$i" -eq 0 ]; then
-    P_LEFT=8
+    P_LEFT=$BORDER_SIDE_PAD
     P_RIGHT=4
   elif [ "$i" -eq 4 ]; then
     P_LEFT=4
-    P_RIGHT=8
+    P_RIGHT=$BORDER_SIDE_PAD
   else
     P_LEFT=4
     P_RIGHT=4
@@ -164,20 +167,20 @@ do
   sketchybar --add space space."$sid" center --set space."$sid" "${space[@]}"
 done
 
-sketchybar --add bracket spaces '/space\..*/'   \
-    --set spaces                                \
-        background.color=$bg_color              \
-        background.padding_left=40 \
-        background.height=30                                \
-        background.border_width=2                           \
-        background.corner_radius=6                          \
+sketchybar --add bracket spaces '/space\..*/'                                       \
+    --set spaces                                                                    \
+        background.color=$bg_color                                                  \
+        background.padding_left=40                                                  \
+        background.height=30                                                        \
+        background.border_width=2                                                   \
+        background.corner_radius=$BORDER_RADIUS                                     \
         background.border_color="0xff${color4:1}"
 
 
-sketchybar --add item space_listener center                     \
-    --subscribe space_listener                                  \
-        space_change space_windows_change front_app_switched    \
-    --set space_listener                                        \
+sketchybar --add item space_listener center                                         \
+    --subscribe space_listener                                                      \
+        space_change space_windows_change front_app_switched                        \
+    --set space_listener                                                            \
         script="~/.config/sketchybar/plugins/spaces.sh"
 
 
@@ -186,97 +189,97 @@ sketchybar --add item space_listener center                     \
 #########
 
 # POWER MENU
-sketchybar --add item power.icon right                  \
-    --set power.icon                                    \
-        icon=⏻                                          \
-        icon.color="0xff${color1:1}"                    \
-        icon.padding_left=12                            \
-        icon.padding_right=8                            \
-        y_offset=1                                      \
-        popup.align=right                               \
-        popup.background.drawing=on                     \
-        popup.y_offset=4                                \
-        popup.background.color="0xb2${background:1}"    \
-        popup.background.margin_top=0                   \
-        popup.background.border_width=2                 \
-        popup.background.corner_radius=12               \
-        popup.background.border_color="0xff${color1:1}" \
-        click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
-    --add item power.logout popup.power.icon            \
-    --set power.logout                                  \
-        icon=                                          \
-        icon.padding_left=8                             \
-        label="Logout"                                  \
-        label.padding_left=2                            \
-        label.padding_right=8                           \
+sketchybar --add item power.icon right                                              \
+    --set power.icon                                                                \
+        icon=⏻                                                                      \
+        icon.color="0xff${color1:1}"                                                \
+        icon.padding_left=12                                                        \
+        icon.padding_right=8                                                        \
+        y_offset=1                                                                  \
+        popup.align=right                                                           \
+        popup.background.drawing=on                                                 \
+        popup.y_offset=4                                                            \
+        popup.background.color="0xb2${background:1}"                                \
+        popup.background.margin_top=0                                               \
+        popup.background.border_width=2                                             \
+        popup.background.corner_radius=$BORDER_RADIUS                               \
+        popup.background.border_color="0xff${color1:1}"                             \
+        click_script="sketchybar -m --set \$NAME popup.drawing=toggle"              \
+    --add item power.logout popup.power.icon                                        \
+    --set power.logout                                                              \
+        icon=                                                                      \
+        icon.padding_left=8                                                         \
+        label="Logout"                                                              \
+        label.padding_left=2                                                        \
+        label.padding_right=8                                                       \
         click_script="osascript -e 'tell application \"System Events\" to log out'
-; sketchybar -m --set power.icon popup.drawing=off"     \
-    --add item power.shutdown popup.power.icon          \
-    --set power.shutdown                                \
-        icon=⏻                                          \
-        icon.padding_left=8                             \
-        label="Shut Down"                               \
-        label.padding_left=2                            \
-        label.padding_right=8                           \
+; sketchybar -m --set power.icon popup.drawing=off"                                 \
+    --add item power.shutdown popup.power.icon                                      \
+    --set power.shutdown                                                            \
+        icon=⏻                                                                      \
+        icon.padding_left=8                                                         \
+        label="Shut Down"                                                           \
+        label.padding_left=2                                                        \
+        label.padding_right=8                                                       \
         click_script="osascript -e 'tell application \"System Events\" to shut down'
-; sketchybar -m --set power.icon popup.drawing=off"     \
-    --add item power.restart popup.power.icon           \
-    --set power.restart                                 \
-        icon=                                          \
-        icon.padding_left=8                             \
-        label="Restart"                                 \
-        label.padding_left=2                            \
-        label.padding_right=8                           \
+; sketchybar -m --set power.icon popup.drawing=off"                                 \
+    --add item power.restart popup.power.icon                                       \
+    --set power.restart                                                             \
+        icon=                                                                      \
+        icon.padding_left=8                                                         \
+        label="Restart"                                                             \
+        label.padding_left=2                                                        \
+        label.padding_right=8                                                       \
         click_script="osascript -e 'tell application \"System Events\" to restart'
 ; sketchybar -m --set power.icon popup.drawing=off"
 
 # CLOCK
-sketchybar --add item clock right                   \
-    --set clock                                     \
-        label.padding_left=8                        \
-        label.padding_right=8                       \
-        label.color=$fg_color                       \
-        update_freq=10                              \
-        background.color=$bg_color                  \
-        background.height=30                        \
-        background.border_width=2                   \
-        background.corner_radius=6                  \
-        background.border_color="0xff${color2:1}"   \
-        background.padding_left=5                   \
+sketchybar --add item clock right                                                   \
+    --set clock                                                                     \
+        label.padding_left=$BORDER_SIDE_PAD                                         \
+        label.padding_right=$BORDER_SIDE_PAD                                        \
+        label.color=$fg_color                                                       \
+        update_freq=10                                                              \
+        background.color=$bg_color                                                  \
+        background.height=30                                                        \
+        background.border_width=2                                                   \
+        background.corner_radius=$BORDER_RADIUS                                     \
+        background.border_color="0xff${color2:1}"                                   \
+        background.padding_left=5                                                   \
         script="$PLUGIN_DIR/clock.sh"
 
 # VOLUME
-sketchybar --add item volume right      \
-    --subscribe volume                  \
-        volume_change                   \
-    --set volume                        \
-        script="$PLUGIN_DIR/volume.sh"  \
-        icon.color="0xff${color3:1}"    \
-        label.padding_left=2            \
-        label.padding_right=8           \
+sketchybar --add item volume right                                                  \
+    --subscribe volume                                                              \
+        volume_change                                                               \
+    --set volume                                                                    \
+        script="$PLUGIN_DIR/volume.sh"                                              \
+        icon.color="0xff${color3:1}"                                                \
+        label.padding_left=2                                                        \
+        label.padding_right=$BORDER_SIDE_PAD                                        \
         label.color=$fg_color           
 
 # BATTERY
-sketchybar --add item battery right         \
-    --subscribe battery                     \
-        system_woke power_source_change     \
-    --set battery                           \
-        icon.color="0xff${color3:1}"        \
-        icon.padding_left=8                 \
-        label.padding_left=2                \
-        label.padding_right=8               \
-        label.color=$fg_color               \
-        update_freq=120                     \
+sketchybar --add item battery right                                                 \
+    --subscribe battery                                                             \
+        system_woke power_source_change                                             \
+    --set battery                                                                   \
+        icon.color="0xff${color3:1}"                                                \
+        icon.padding_left=$BORDER_SIDE_PAD                                          \
+        label.padding_left=2                                                        \
+        label.padding_right=8                                                       \
+        label.color=$fg_color                                                       \
+        update_freq=120                                                             \
         script="$PLUGIN_DIR/battery.sh"
 
 
 # BRACKET AROUND POWER / VOLUME INFO
-sketchybar --add bracket misc_info volume battery   \
-    --set misc_info                                 \
-        background.color=$bg_color                  \
-        background.height=30                        \
-        background.border_width=2                   \
-        background.corner_radius=6                  \
+sketchybar --add bracket misc_info volume battery                                   \
+    --set misc_info                                                                 \
+        background.color=$bg_color                                                  \
+        background.height=30                                                        \
+        background.border_width=2                                                   \
+        background.corner_radius=$BORDER_RADIUS                                     \
         background.border_color="0xff${color3:1}"
 
 sketchybar --update
