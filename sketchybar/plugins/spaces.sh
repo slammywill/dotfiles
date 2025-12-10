@@ -14,9 +14,7 @@ yabai -m query --spaces | jq -c '.[]' | while read -r space; do
     app_name=$(yabai -m query --windows --window "$first_window_id" | jq -r '.app')
     icon=$(get_icon_for_app "$app_name")
     sketchybar --set space."$index" icon="$icon" drawing=on
-  elif [ "$index" -eq "$focused_space" ]; then
-    sketchybar --set space."$index" icon="$DEFAULT_ICON" drawing=on
   else
-    sketchybar --set space."$index" drawing=off
+    sketchybar --set space."$index" icon="$DEFAULT_ICON" drawing=on
   fi
 done

@@ -1,4 +1,4 @@
-DEFAULT_ICON=" "
+DEFAULT_ICON="󱓼 "
 
 # Mapping function
 get_icon_for_app() {
