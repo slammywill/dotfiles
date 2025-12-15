@@ -2,10 +2,11 @@ source "$HOME/.cache/wal/colors.sh"
 PLUGIN_DIR="~/.config/sketchybar/plugins"
 
 fg_color="0xff${foreground:1}"
-bg_color="0xff${background:1}"
+bg_color="0x00${background:1}"
 
-BORDER_RADIUS=15
+BORDER_RADIUS=8
 BORDER_SIDE_PAD=12
+BORDER_WIDTH=2
 
 
 ############
@@ -21,18 +22,17 @@ sketchybar --bar                                                                
     position=top                                                                    \
     height=40                                                                       \
     blur_radius=20                                                                  \
+    border_width=1                                                                  \
+    border_color="0x28ffffff"                                                       \
     color="0xb2${background:1}"
 
-sketchybar --hotload true
-
-default=(
-  icon.font="JetBrainsMono Nerd Font:Bold:17.0"
-  label.font="JetBrainsMono Nerd Font:Medium:14.0"
-  icon.color=$fg_color
+sketchybar --default                                                                \
+  icon.font="JetBrainsMono Nerd Font:Bold:17.0"                                     \
+  label.font="JetBrainsMono Nerd Font:Medium:14.0"                                  \
+  icon.color=$fg_color                                                              \
   label.color=$fg_color
-)
-sketchybar --default "${default[@]}"
 
+sketchybar --hotload on
 
 ########
 # LEFT #
@@ -96,7 +96,6 @@ sketchybar --add item topmem left                                               
         label.padding_right=8                                                       \
         update_freq=2                                                               \
         script="~/.config/sketchybar/plugins/memory.sh"
-
 # CPU USAGE
 sketchybar --add item cpu_percent left                                              \
     --set cpu_percent                                                               \
@@ -113,7 +112,7 @@ sketchybar --add bracket sys_info disk topmem cpu_percent                       
     --set sys_info                                                                  \
         background.color=$bg_color                                                  \
         background.height=30                                                        \
-        background.border_width=2                                                   \
+        background.border_width=$BORDER_WIDTH                                       \
         background.corner_radius=$BORDER_RADIUS                                     \
         background.border_color="0xff${color2:1}"
 
@@ -121,13 +120,15 @@ sketchybar --add bracket sys_info disk topmem cpu_percent                       
 sketchybar --add item front_app left                                                \
     --subscribe front_app                                                           \
         front_app_switched                                                          \
+        mouse.entered                                                               \
+        mouse.exited                                                                \
     --set front_app                                                                 \
         label.color=$fg_color                                                       \
         label.padding_left=$BORDER_SIDE_PAD                                         \
         label.padding_right=$BORDER_SIDE_PAD                                        \
         background.color=$bg_color                                                  \
         background.height=30                                                        \
-        background.border_width=2                                                   \
+        background.border_width=$BORDER_WIDTH                                       \
         background.corner_radius=$BORDER_RADIUS                                     \
         background.border_color="0xff${color3:1}"                                   \
         background.padding_left=5                                                   \
@@ -139,32 +140,36 @@ sketchybar --add item front_app left                                            
 ##########
 
 # MISSION CONTROL
-SPACE_ICONS=(" " " " " " " " " ")
-for i in "${!SPACE_ICONS[@]}"
-do
-  sid="$(($i+1))"
-  if [ "$i" -eq 0 ]; then
-    P_LEFT=$BORDER_SIDE_PAD
-    P_RIGHT=4
-  elif [ "$i" -eq 4 ]; then
-    P_LEFT=4
-    P_RIGHT=$BORDER_SIDE_PAD
-  else
-    P_LEFT=4
-    P_RIGHT=4
-  fi
+sketchybar --add event aerospace_workspace_change
+
+source ~/.config/sketchybar/plugins/app_icons.sh
+num_workspaces=$(aerospace list-workspaces --all --count)
+
+for sid in $(aerospace list-workspaces --all); do
+    app_name="""$(aerospace list-windows --json --workspace $sid | jq -r '.[0].["app-name"]')"""
+    app_icon="$(get_icon_for_app "$app_name")"
+    sketchybar --add item space.$sid center                                             \
+        --subscribe space.$sid                                                          \
+            aerospace_workspace_change                                                  \
+        --set space.$sid                                                                \
+            icon="$app_icon"                                                            \
+            click_script="aerospace workspace $sid"                                     \
+            script="$PLUGIN_DIR/aerospace.sh $sid"
+
+    if [ "$sid" = "1" ]; then
+        sketchybar --set space.$sid                                                     \
+            icon.padding_left=$BORDER_SIDE_PAD                                          \
+            icon.padding_right=4
+    elif [ "$sid" = "$num_workspaces" ]; then
+        sketchybar --set space.$sid                                                     \
+            icon.padding_left=4                                                         \
+            icon.padding_right=$BORDER_SIDE_PAD
+    else
+        sketchybar --set space.$sid                                                     \
+            icon.padding_left=4                                                         \
+            icon.padding_right=4
+    fi
     
-  space=(
-    space="$sid"
-    icon="${SPACE_ICONS[i]}"
-    icon.padding_left=$P_LEFT
-    icon.padding_right=$P_RIGHT
-    background.drawing=on
-    label.drawing=off
-    script="$PLUGIN_DIR/space.sh"
-    click_script="yabai -m space --focus $sid"
-  )
-  sketchybar --add space space."$sid" center --set space."$sid" "${space[@]}"
 done
 
 sketchybar --add bracket spaces '/space\..*/'                                       \
@@ -172,16 +177,11 @@ sketchybar --add bracket spaces '/space\..*/'                                   
         background.color=$bg_color                                                  \
         background.padding_left=40                                                  \
         background.height=30                                                        \
-        background.border_width=2                                                   \
+        background.border_width=$BORDER_WIDTH                                       \
         background.corner_radius=$BORDER_RADIUS                                     \
         background.border_color="0xff${color4:1}"
 
 
-sketchybar --add item space_listener center                                         \
-    --subscribe space_listener                                                      \
-        space_change space_windows_change front_app_switched                        \
-    --set space_listener                                                            \
-        script="~/.config/sketchybar/plugins/spaces.sh"
 
 
 #########
@@ -201,7 +201,7 @@ sketchybar --add item power.icon right                                          
         popup.y_offset=4                                                            \
         popup.background.color="0xb2${background:1}"                                \
         popup.background.margin_top=0                                               \
-        popup.background.border_width=2                                             \
+        popup.background.border_width=$BORDER_WIDTH                                 \
         popup.background.corner_radius=$BORDER_RADIUS                               \
         popup.background.border_color="0xff${color1:1}"                             \
         click_script="sketchybar -m --set \$NAME popup.drawing=toggle"              \
@@ -242,7 +242,7 @@ sketchybar --add item clock right                                               
         update_freq=10                                                              \
         background.color=$bg_color                                                  \
         background.height=30                                                        \
-        background.border_width=2                                                   \
+        background.border_width=$BORDER_WIDTH                                       \
         background.corner_radius=$BORDER_RADIUS                                     \
         background.border_color="0xff${color2:1}"                                   \
         background.padding_left=5                                                   \
@@ -278,7 +278,7 @@ sketchybar --add bracket misc_info volume battery                               
     --set misc_info                                                                 \
         background.color=$bg_color                                                  \
         background.height=30                                                        \
-        background.border_width=2                                                   \
+        background.border_width=$BORDER_WIDTH                                       \
         background.corner_radius=$BORDER_RADIUS                                     \
         background.border_color="0xff${color3:1}"
 

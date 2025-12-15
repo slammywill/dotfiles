@@ -32,6 +32,7 @@ get_icon_for_app() {
     "Reminders") echo "󱃔 " ;;
     "Spotify") echo " " ;;
     "Steam") echo " " ;;
+    "Steam Helper") echo " " ;;
     "System Settings") echo "󰒓 " ;;
     "uavsar") echo "󰦄 " ;;
     "Zathura") echo " " ;;
