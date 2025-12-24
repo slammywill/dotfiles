@@ -10,6 +10,7 @@ after-startup-command = ['exec-and-forget sketchybar']
 exec-on-workspace-change = ['/bin/bash', '-c',
     'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
 ]
+on-focus-changed = ['exec-and-forget sketchybar --trigger aerospace_focus_change']
 
 # Start AeroSpace at login
 start-at-login = true
@@ -142,9 +143,6 @@ on-mode-changed = []
     alt-shift-4 = 'move-node-to-workspace 4'
     alt-shift-5 = 'move-node-to-workspace 5'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-    alt-tab = 'workspace-back-and-forth'
-
     alt-o = 'workspace next'
     alt-i = 'workspace prev'
 
@@ -152,10 +150,25 @@ on-mode-changed = []
     alt-shift-r = ['reload-config', 'exec-and-forget sketchybar --reload']
 
     # Misc
-    alt-c = 'close'
     alt-q = 'exec-and-forget open -a "kitty"'
     alt-e = 'exec-and-forget open ~'
     alt-n = 'exec-and-forget open -a "Obsidian"'
+    alt-a = 'exec-and-forget open -a "Zen"'
+
+    alt-c = 'close'
+
     alt-f = 'layout floating tiling'
 
+    # Default spaces
+    [[on-window-detected]]
+    if.app-id = 'net.kovidgoyal.kitty'
+    run = ['move-node-to-workspace 1']
+
+    [[on-window-detected]]
+    if.app-id = 'app.zen-browser.zen'
+    run = ['move-node-to-workspace 2']
+
+    [[on-window-detected]]
+    if.app-id = 'md.obsidian'
+    run = ['move-node-to-workspace 3']
 
