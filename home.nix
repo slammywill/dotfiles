@@ -63,5 +63,6 @@ in
         zoxide
         steam
         lazygit
+        obsidian
     ];
 }
