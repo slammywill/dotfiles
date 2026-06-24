@@ -1,0 +1,20 @@
+alias gaa='git add .'
+alias gl='git pull'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gp='git push'
+alias gcm='git commit -m'
+alias gdf='git diff'
+alias lg='lazygit'
+
+alias v='nvim'
+alias ls='ls -lahG --color'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias fzf='fzf --tmux'
+alias tmd='tmux det'
+alias tma='tmux att'
+
+alias switch='sudo nixos-rebuild switch --flake ~/dotfiles#lavalamp2'
+

@@ -1,0 +1,14 @@
+vim.pack.add({
+    'https://github.com/neovim/nvim-lspconfig.git',
+    'https://github.com/ellisonleao/gruvbox.nvim.git',
+    'https://github.com/nvim-lua/plenary.nvim.git',
+    'https://github.com/nvim-telescope/telescope.nvim.git',
+    'https://github.com/MunifTanjim/nui.nvim.git',
+    'https://github.com/nvim-tree/nvim-web-devicons.git',
+    'https://github.com/nvim-neo-tree/neo-tree.nvim.git',
+    'https://github.com/akinsho/toggleterm.nvim.git',
+    'https://github.com/nvim-lualine/lualine.nvim.git',
+    'https://github.com/windwp/nvim-autopairs.git',
+    'https://github.com/nvimdev/dashboard-nvim.git',
+})
+

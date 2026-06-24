@@ -1,0 +1,126 @@
+/* ~/.config/rofi/config.rasi */
+
+* {
+    bg:         #282828;
+    bg-alt:     #32302f;
+    fg:         #ebdbb2;
+    fg-alt:     #a89984;
+
+    accent:     #d79921;
+    red:        #cc241d;
+    green:      #98971a;
+    blue:       #458588;
+
+    border:     #504945;
+
+    font: "JetBrainsMono Nerd Font 12";
+
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    width: 650px;
+    padding: 20px;
+
+    background-color: @bg;
+    border: 3px;
+    border-color: @accent;
+    border-radius: 0px;
+
+    location: center;
+    anchor: center;
+}
+
+mainbox {
+    spacing: 15px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+
+    border: 2px;
+    border-color: @border;
+    border-radius: 0px;
+
+    padding: 12px;
+    spacing: 10px;
+}
+
+prompt {
+    text-color: @accent;
+    font: "JetBrainsMono Nerd Font Bold 12";
+}
+
+entry {
+    text-color: @fg-alt;
+    placeholder: "Search...";
+    placeholder-color: @fg-alt;
+}
+
+listview {
+    lines: 10;
+    columns: 1;
+
+
+    border: 2px;
+    border-color: @border;
+    border-radius: 0px;
+
+    spacing: 6px;
+    padding: 6px;
+
+    scrollbar: false;
+    dynamic: true;
+}
+
+element {
+    padding: 12px;
+    spacing: 10px;
+
+    border: 2px solid;
+    border-color: @border;
+    border-radius: 0px;
+}
+
+element.normal.normal,
+element.alternate.normal {
+    text-color: @fg;
+    background-color: @bg-alt;
+}
+
+element selected.normal {
+    background-color: @accent;
+    text-color: @bg;
+    border-color: @fg-alt;
+}
+
+element selected.urgent {
+    background-color: @red;
+    text-color: @bg;
+}
+
+element selected.active {
+    background-color: @green;
+    text-color: @bg;
+}
+
+element-icon {
+    size: 24px;
+    vertical-align: 0.5;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+message {
+    border: 2px solid;
+    border-color: @border;
+    padding: 10px;
+    background-color: @bg-alt;
+}
+
+textbox {
+    text-color: @fg-alt;
+}

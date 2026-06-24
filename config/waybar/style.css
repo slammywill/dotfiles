@@ -1,0 +1,168 @@
+@define-color bg #282828;
+@define-color fg #ebdbb2;
+@define-color black #665c54; 
+@define-color red #cc241d;
+@define-color green #98971a;
+@define-color yellow #d79921;
+@define-color blue #458588;
+@define-color purple #b16286;
+@define-color aqua #689d6a;
+@define-color white #a89984;
+@define-color orange #d65d0e;
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: 'JetBrainsMono Nerd Font', FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+}
+
+window#waybar {
+    background-color: alpha(@bg, 0.85);
+    border: 2px solid alpha(@fg, 0.50);
+    color: @fg;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @fg;
+    margin-top: 10px;
+}
+
+#workspaces {
+  transition: 0.1s ease-in-out;
+  margin: 0px 0px 0px 0px;
+  padding: 4px 0px;
+}
+
+#workspaces button {
+  all: initial;
+  padding: 0px 9px;
+  margin: 0px 1px;
+  color: @orange;
+  opacity: 1;
+  font-weight: 900;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+#workspaces button.active {
+  color: @bg;
+  border-radius: 2px;
+  background-color: @orange;
+  padding: 0px 9px;
+  margin: 0px 1px;
+  opacity: 1.0;
+}
+
+#workspaces button.empty:hover, 
+#workspaces button:hover {
+    background: transparent;
+    color: @fg;
+    transition: all 150ms ease;
+    opacity: 1;
+}
+
+#workspaces button.empty {
+  opacity: 1;
+  border-radius: 2px;
+  padding: 0px 9px;
+  margin: 0px 1px;
+  color: alpha(@fg, 0.25);
+}
+
+#workspaces button.empty.active {
+  opacity: 1;
+  border-radius: 2px;
+  padding: 0px 9px;
+  background-color: alpha(@fg, 0.5);
+  color: @bg;
+}
+
+#custom-os {
+    color: @orange;
+    font-weight: 900;
+}
+
+#custom-mpris {
+    color: @bg;
+    background-color: @orange;
+    border-radius: 4px;
+    margin: 4px 0px 4px 0px;
+    padding: 0px 4px 0px 4px;
+}
+
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#network,
+#pulseaudio,
+#wireplumber,
+#mpd {
+    padding: 0 5px;
+}
+
+#memory,
+#disk,
+#cpu {
+    color: @fg;
+}
+
+#clock {
+    color: @orange;
+    font-weight: 900;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+
+#pulseaudio.muted {
+    background-color: #90b1b1;
+    color: #2a5c45;
+}
+
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+
