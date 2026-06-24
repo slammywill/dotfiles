@@ -18,7 +18,12 @@ in
     home.homeDirectory = "/home/lavalamp";
     home.stateVersion = "26.05";
 
-    programs.git.enable = true;
+    programs.git = {
+        enable = true;
+        settings.user.name = "Sam Willems";
+        settings.user.email = "samjwillems@protonmail.com";
+    };
+
     programs.zsh = {
         enable = true;
         initContent = "source ~/.config/zsh/zsh_config";
@@ -57,5 +62,6 @@ in
         starship
         zoxide
         steam
+        lazygit
     ];
 }
