@@ -20,6 +20,7 @@
 
   services.getty.autologinUser = "lavalamp";
 
+
   # AUDIO
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;		# Allows pipewire audio threads to run real-time
@@ -30,6 +31,27 @@
 	pulse.enable = true;
 	jack.enable = true;
   };
+
+
+  # BLUETOOTH
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+
+    settings = {
+      General = {
+        Experimental = true;
+        FastConnectable = true;
+      };
+
+      Policy = {
+        AutoEnable = true;
+      };
+    };
+  };
+
+  services.blueman.enable = true;
+
 
   # KEY REMAP
   services.keyd = {
