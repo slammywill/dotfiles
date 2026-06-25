@@ -64,5 +64,6 @@ in
         steam
         lazygit
         obsidian
+        cargo
     ];
 }

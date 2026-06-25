@@ -75,6 +75,12 @@
 
   programs.zsh.enable = true;
 
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   users.users.lavalamp = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
