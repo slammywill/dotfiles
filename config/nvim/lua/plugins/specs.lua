@@ -10,5 +10,8 @@ vim.pack.add({
     'https://github.com/nvim-lualine/lualine.nvim.git',
     'https://github.com/windwp/nvim-autopairs.git',
     'https://github.com/nvimdev/dashboard-nvim.git',
+    'https://github.com/neovim/nvim-lspconfig.git',
+    'https://github.com/saghen/blink.lib.git',
+    'https://github.com/saghen/blink.cmp.git',
 })
 
