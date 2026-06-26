@@ -19,6 +19,13 @@ let
 in
 
 {
+  imports = [
+    ./modules/neovim.nix
+    ./modules/shell.nix
+    ./modules/dev.nix
+    ./modules/system.nix
+  ];
+
   home.username = "lavalamp";
   home.homeDirectory = "/home/lavalamp";
   home.stateVersion = "26.05";
@@ -44,36 +51,10 @@ in
     recursive = true;
   }) configs;
 
-  home.packages = with pkgs; [
-    gcc
-    rofi
-    btop
-    kitty
-    waybar
-    kdePackages.dolphin
-    brightnessctl
-    hyprpaper
-    neovim
-    ripgrep
-    fzf
-    fd
-    zoxide
-    fastfetch
-    python3
-    playerctl
-    spotify
-    starship
-    zoxide
-    steam
-    lazygit
-    obsidian
-    cargo
-    rustc
 
-    lua-language-server
-    rust-analyzer
-    nil
-    clang-tools
-    pyright
+  home.packages = with pkgs; [
+    spotify
+    steam
+    obsidian
   ];
 }

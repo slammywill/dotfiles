@@ -39,11 +39,6 @@
     powerOnBoot = true;
 
     settings = {
-      General = {
-        Experimental = true;
-        FastConnectable = true;
-      };
-
       Policy = {
         AutoEnable = true;
       };
@@ -96,6 +91,9 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+    pulseaudio
+    wireplumber
+    bluez
   ];
 
   fonts.packages = with pkgs; [
