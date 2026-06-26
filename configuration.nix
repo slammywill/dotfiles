@@ -1,11 +1,15 @@
-
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -20,18 +24,16 @@
 
   services.getty.autologinUser = "lavalamp";
 
-
   # AUDIO
   services.pulseaudio.enable = false;
-  security.rtkit.enable = true;		# Allows pipewire audio threads to run real-time
+  security.rtkit.enable = true; # Allows pipewire audio threads to run real-time
   services.pipewire = {
-  	enable = true;
-	alsa.enable = true;
-	alsa.support32Bit = true;
-	pulse.enable = true;
-	jack.enable = true;
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
-
 
   # BLUETOOTH
   hardware.bluetooth = {
@@ -46,7 +48,6 @@
   };
 
   services.blueman.enable = true;
-
 
   # KEY REMAP
   services.keyd = {
@@ -70,7 +71,6 @@
 
   programs.zsh.enable = true;
 
-
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -84,7 +84,6 @@
     ];
     shell = pkgs.zsh;
   };
-
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -100,8 +99,10 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  system.stateVersion = "26.05"; 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  system.stateVersion = "26.05";
 
 }
-

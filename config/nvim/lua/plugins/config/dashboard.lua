@@ -9,7 +9,8 @@ require("dashboard").setup({
                 desc = "󰊳 Update",
                 group = "@property",
                 action = "vim.pack.update()",
-                key = "u" },
+                key = "u"
+            },
             {
                 desc = " Files",
                 group = "Label",

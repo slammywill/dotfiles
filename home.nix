@@ -51,7 +51,6 @@ in
     recursive = true;
   }) configs;
 
-
   home.packages = with pkgs; [
     spotify
     steam
